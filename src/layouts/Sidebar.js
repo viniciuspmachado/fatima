@@ -40,8 +40,8 @@ const navigation = [
     icon: "bi bi-layout-split",
   },
   {
-    title: "Forms",
-    href: "/forms",
+    title: "Ficha Batismo",
+    href: "/Ficha_Batismo",
     icon: "bi bi-textarea-resize",
   },
   {
