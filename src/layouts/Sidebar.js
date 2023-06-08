@@ -41,7 +41,7 @@ const navigation = [
   },
   {
     title: "Ficha Batismo",
-    href: "/Ficha_Batismo",
+    href: "/FichaBatismo",
     icon: "bi bi-textarea-resize",
   },
   {

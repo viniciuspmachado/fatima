@@ -14,7 +14,7 @@ const Buttons = lazy(() => import("../views/ui/Buttons"));
 const Cards = lazy(() => import("../views/ui/Cards"));
 const Grid = lazy(() => import("../views/ui/Grid"));
 const Tables = lazy(() => import("../views/ui/Tables"));
-const Ficha_Batismo = lazy(() => import("../views/ui/Ficha_Batismo"));
+const FichaBatismo = lazy(() => import("../views/ui/Ficha_Batismo"));
 const Breadcrumbs = lazy(() => import("../views/ui/Breadcrumbs"));
 
 /*****Routes******/
@@ -33,7 +33,7 @@ const ThemeRoutes = [
       { path: "/cards", exact: true, element: <Cards /> },
       { path: "/grid", exact: true, element: <Grid /> },
       { path: "/table", exact: true, element: <Tables /> },
-      { path: "/Ficha_Batismo", exact: true, element: <Ficha_Batismo /> },
+      { path: "/FichaBatismo", exact: true, element: <FichaBatismo /> },
       { path: "/breadcrumbs", exact: true, element: <Breadcrumbs /> },
     ],
   },
