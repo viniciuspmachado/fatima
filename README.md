@@ -5,10 +5,10 @@
 \paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
 }
 
-### Banco de Dados
+## Banco de Dados
 Criar banco de dados fatimaDB
 
-## Criar tabela batismo
+### Criar tabela batismo
 ```
 CREATE TABLE batismo (
 	id int NOT NULL AUTO_INCREMENT,
