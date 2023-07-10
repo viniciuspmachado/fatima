@@ -1,10 +1,3 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2709
-\cocoatextscaling0\cocoaplatform0{\fonttbl}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-}
-
 ## Banco de Dados
 Criar banco de dados fatimaDB
 
@@ -33,3 +26,18 @@ CREATE TABLE batismo (
 4- São Cristóvão
 5- Nossa Senhora dos Mártires
 6- Rosário
+7- São Francisco
+8- Cristo Libertador
+9- Laura Vicuña
+10- São José Operário
+11- Lourdes
+12- Cristo Rei
+13- São José
+14- Amparo
+15- Mater Dolorosa
+16- Santa João D’arc 
+17- Cabral
+18- Santíssima Trindade 
+19- Candeias
+20- São Paulo
+21- São Benedito
