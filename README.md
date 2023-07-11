@@ -19,6 +19,14 @@ CREATE TABLE batismo (
 	PRIMARY KEY (id)
 );
 ```
+### Criar tabela Sacramentos
+```
+CREATE TABLE sacramentos (
+	id int NOT NULL AUTO_INCREMENT,
+    nome tinytext
+);
+```
+
 
 1- Fatima 
 2- São João
@@ -41,3 +49,15 @@ CREATE TABLE batismo (
 19- Candeias
 20- São Paulo
 21- São Benedito
+22- Morada Nova (Nossa Senhora da Imaculada Conceição)
+23- Lourdes
+24- Menino Jesus de Praga
+25- Noivos
+26- Santo Antônio
+27- Nazaré
+28- Paulo VI
+29- Shalom
+
+
+
+
