@@ -22,41 +22,34 @@ CREATE TABLE batismo (
 ### Criar tabela Sacramentos
 ```
 CREATE TABLE sacramentos (
-	id int NOT NULL AUTO_INCREMENT,
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome tinytext
+);
+```
+
+### Criar tabela de Relacionamento entre Pessoa x Sacramento
+```
+CREATE TABLE pessoa_sacram (
+	idPessoa INT NOT NULL,
+    idSacram INT NOT NULL,
+    
+    CONSTRAINT PK_Pessoa_Sacram PRIMARY KEY (idPessoa, idSacram),
+    CONSTRAINT PF_Pessoa_Sacram2 FOREIGN KEY (idPessoa)
+		REFERENCES batismo (id),
+	CONSTRAINT PF_Pessoa_Sacram3 FOREIGN KEY (idSacram)
+		REFERENCES sacramentos (id)
+);
+```
+### Criar tabela de Paróquias
+```CREATE TABLE paroquias (
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nome tinytext
 );
 ```
 
 
-1- Fatima 
-2- São João
-3- Santa Teresinha
-4- São Cristóvão
-5- Nossa Senhora dos Mártires
-6- Rosário
-7- São Francisco
-8- Cristo Libertador
-9- Laura Vicuña
-10- São José Operário
-11- Lourdes
-12- Cristo Rei
-13- São José
-14- Amparo
-15- Mater Dolorosa
-16- Santa João D’arc 
-17- Cabral
-18- Santíssima Trindade 
-19- Candeias
-20- São Paulo
-21- São Benedito
-22- Morada Nova (Nossa Senhora da Imaculada Conceição)
-23- Lourdes
-24- Menino Jesus de Praga
-25- Noivos
-26- Santo Antônio
-27- Nazaré
-28- Paulo VI
-29- Shalom
+
+
 
 
 
