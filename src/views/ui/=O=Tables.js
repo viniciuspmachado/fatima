@@ -1,44 +1,18 @@
-//import ProjectTables from "../../components/dashboard/ProjectTable";
+import ProjectTables from "../../components/dashboard/ProjectTable";
 import { Row, Col, Table, Card, CardTitle, CardBody } from "reactstrap";
-import { knex } from "knex";
 
-const db = knex ({
-  client: 'mysql',
-  connection: {
-    host : '127.0.0.1',
-    port : 3306,
-    user : 'root',
-    password : 'F3r5a5d0',
-    database : 'batismo'
-  }
-});
-
-const dados = db.select('*')
-  .from('batismo');
-
-console.log(dados);
-
-/*
-db.select('*')
-  .from('batismo')
-  .then((rows) => {
-      console.log(`${rows['id']} ${rows['nome_ela']} ${rows['casados']}`);
-  })
-*/
-  
 const Tables = () => {
   return (
     <Row>
       {/* --------------------------------------------------------------------------------*/}
       {/* table-1*/}
-      {/* --------------------------------------------------------------------------------
+      {/* --------------------------------------------------------------------------------*/}
       <Col lg="12">
         <ProjectTables />
-      </Col>*/}
-
+      </Col>
       {/* --------------------------------------------------------------------------------*/}
       {/* table-2*/}
-      {/* --------------------------------------------------------------------------------
+      {/* --------------------------------------------------------------------------------*/}
       <Col lg="12">
         <Card>
           <CardTitle tag="h6" className="border-bottom p-3 mb-0">
@@ -78,11 +52,10 @@ const Tables = () => {
             </Table>
           </CardBody>
         </Card>
-      </Col>*/}
-
+      </Col>
       {/* --------------------------------------------------------------------------------*/}
       {/* table-3*/}
-      {/* --------------------------------------------------------------------------------
+      {/* --------------------------------------------------------------------------------*/}
       <Col lg="12">
         <Card>
           <CardTitle tag="h6" className="border-bottom p-3 mb-0">
@@ -122,8 +95,7 @@ const Tables = () => {
             </Table>
           </CardBody>
         </Card>
-      </Col>*/}
-
+      </Col>
       {/* --------------------------------------------------------------------------------*/}
       {/* table-3*/}
       {/* --------------------------------------------------------------------------------*/}

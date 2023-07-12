@@ -41,7 +41,8 @@ CREATE TABLE pessoa_sacram (
 );
 ```
 ### Criar tabela de Paróquias
-```CREATE TABLE paroquias (
+```
+CREATE TABLE paroquias (
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nome tinytext
 );
