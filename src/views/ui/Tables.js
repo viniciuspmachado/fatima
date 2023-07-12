@@ -22,7 +22,7 @@ console.log(users);
 const dados = db.select('nome_ela')
   .from('batismo');
 
-console.log(dados.db);
+console.log(dados);
 
 
 
