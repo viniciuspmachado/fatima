@@ -1,6 +1,7 @@
 //import ProjectTables from "../../components/dashboard/ProjectTable";
 import { Row, Col, Table, Card, CardTitle, CardBody } from "reactstrap";
-import { knex } from "knex";
+import knex from "knex";
+import React from "react";
 
 const db = knex ({
   client: 'mysql',
@@ -13,18 +14,35 @@ const db = knex ({
   }
 });
 
-const dados = db.select('*')
+/* const users = db('batismo').select('*').toString();
+console.log(users);
+
+ */
+
+const dados = db.select('nome_ela')
   .from('batismo');
 
-console.log(dados);
+console.log(dados.db);
 
-/*
-db.select('*')
-  .from('batismo')
-  .then((rows) => {
-      console.log(`${rows['id']} ${rows['nome_ela']} ${rows['casados']}`);
-  })
-*/
+
+
+//console.log(usuarios());
+
+
+// function usuarios(users) { 
+//   db.select('*')
+//   .from('batismo')
+//   .then(users => {
+//     console.log('Saida-->',users);
+//   })
+// };
+// const a = '';
+// usuarios(a);
+
+//console.log('Saida-->',users());
+
+  
+
   
 const Tables = () => {
   return (
