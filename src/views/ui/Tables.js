@@ -1,9 +1,19 @@
 //import ProjectTables from "../../components/dashboard/ProjectTable";
 import { Row, Col, Table, Card, CardTitle, CardBody } from "reactstrap";
-import React from "react";
+import {React, useEffect, useState} from "react";
+
 
   
-const Tables = () => {
+  export function Tables() {
+    useEffect(() => {
+      async function getPageData(){
+        const apiUrlEndPoint = 'http://localhost:3000/db/database';
+        const response = await fetch(apiUrlEndPoint);
+        const res = await response.json();
+        console.log(res);
+      }
+      getPageData();
+    },[]);
   return (
     <Row>
       {/* --------------------------------------------------------------------------------*/}
