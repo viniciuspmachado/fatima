@@ -1,12 +1,26 @@
 //import ProjectTables from "../../components/dashboard/ProjectTable";
 import { Row, Col, Table, Card, CardTitle, CardBody } from "reactstrap";
 import {React, useEffect, useState} from "react";
-import db from './database.js';
 
-let results = db;
-console.log('Resultado: ', results);
 
-const Tables = () => {
+  
+  export function Tables() {
+    useEffect(() => {
+      async function getPageData(){
+        
+        //const apiUrlEndPoint = handler;
+        const apiUrlEndPoint = 'http://localhost:3000/database';
+        const response = await fetch(apiUrlEndPoint, {
+          headers : { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           }
+        });
+        const res = await response.text();
+        console.log(res);
+      }
+      getPageData();
+    },[]);
   return (
     <Row>
       <Col lg="12">
