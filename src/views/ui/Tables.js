@@ -1,12 +1,20 @@
 //import ProjectTables from "../../components/dashboard/ProjectTable";
 import { Row, Col, Table, Card, CardTitle, CardBody } from "reactstrap";
-import {React, useEffect, useState} from "react";
-import db from './database.js';
-
-let results = db;
-console.log('Resultado: ', results);
+import {React, useEffect, useState, ReactNode} from "react";
+//import mysql from "mysql2/promise";
+//const mysql = require("mysql2/promise");
+//const db = require('./db');
 
 const Tables = () => {
+   useEffect(() => {
+    async function connect(){
+      console.log('Foi!');
+    }
+
+    connect();
+  }, []);
+  
+  
   return (
     <Row>
       <Col lg="12">
