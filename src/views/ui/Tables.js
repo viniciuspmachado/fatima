@@ -1,20 +1,20 @@
 //import ProjectTables from "../../components/dashboard/ProjectTable";
 import { Row, Col, Table, Card, CardTitle, CardBody } from "reactstrap";
-import {React, useEffect, useState, ReactNode} from "react";
-//import mysql from "mysql2/promise";
-//const mysql = require("mysql2/promise");
-//const db = require('./db');
+import {React} from "react";
+
+
+
 
 const Tables = () => {
-   useEffect(() => {
-    async function connect(){
-      console.log('Foi!');
-    }
+  const dados = fetch('http://localhost:3001/participantes')
+              .then((response) => response.json());
+ 
+  dados.then((a) => {
+    var rows = a.forEach(function(reg, i) {
+      console.log(reg.nome_ele);
+    })
+  });
 
-    connect();
-  }, []);
-  
-  
   return (
     <Row>
       <Col lg="12">
