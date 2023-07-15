@@ -48,6 +48,11 @@ CREATE TABLE paroquias (
 );
 ```
 
+### Ajeitar Usuário
+```
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'F3r5a5d0'
+```
+
 
 
 

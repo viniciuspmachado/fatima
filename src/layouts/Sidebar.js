@@ -35,7 +35,7 @@ const navigation = [
     icon: "bi bi-columns",
   },
   {
-    title: "Table",
+    title: "Inscritos Batismo",
     href: "/table",
     icon: "bi bi-layout-split",
   },
