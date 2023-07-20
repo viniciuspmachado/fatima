@@ -19,7 +19,15 @@ class Ficha_Batismo extends React.Component {
     this.state = {
         tipo: '',
         nomedele: '',
-        name: ''
+        nomedela: '',
+        casados: '',
+        datap: '',
+        endereco: '',
+        cidade: '',
+        telefone: '',
+        sacramentos: '',
+        paroquia: '',
+        ecc: '',
     }
 };
 
@@ -28,22 +36,61 @@ onTipoPChange = (event) => {
 };
 
 onNomeDeleChange = (event) => {
-    this.setState({nomedele: event.target.value})
+  this.setState({nomedele: event.target.value})
 };
 
-onPasswordChange = (event) => {
-    this.setState({password: event.target.value})
+onNomeDelaChange = (event) => {
+  this.setState({nomedela: event.target.value})
+};
+
+onCasadosChange = (event) => {
+  this.setState({casados: event.target.value})
+};
+
+onDataPChange = (event) => {
+  this.setState({datap: event.target.value})
+};
+
+onEnderecoChange = (event) => {
+  this.setState({endereco: event.target.value})
+};
+
+onCidadeChange = (event) => {
+  this.setState({cidade: event.target.value})
+};
+
+onTelChange = (event) => {
+  this.setState({telefone: event.target.value})
+};
+
+onSacraChange = (event) => {
+  this.setState({sacramentos: event.target.value})
+};
+
+onParoquiaChange = (event) => {
+  this.setState({paroquia: event.target.value})
+};
+
+onECCChange = (event) => {
+    this.setState({ecc: event.target.value})
 };
 
 onSubmitSignIn = () => {
-    fetch('http://localhost:3000/register', {
+    fetch('http://localhost:3001/register', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-            tipoP: this.state.tipoP,
-            email: this.state.email,
-            password: this.state.password,
-            name: this.state.name
+            tipo: this.state.tipoP,
+            nomedele: this.state.nomedele,
+            nomedela: this.state.nomedela,
+            casados: this.state.casados,
+            datap: this.state.datap,
+            endereco: this.state.endereco,
+            cidade: this.state.cidade,
+            telefone: this.state.telefone,
+            sacramentos: this.state.sacramentos,
+            paroquia: this.state.paroquia,
+            ecc: this.state.ecc
         })
     })
         .then(response => response.json())
@@ -94,7 +141,7 @@ onSubmitSignIn = () => {
                     id="nomeDele"
                     name="nomeDele"
                     placeholder=""
-                    type="email"
+                    type="text"
                     onChange={this.onNomeDeleChange}
                   />
                 </FormGroup>
@@ -105,20 +152,21 @@ onSubmitSignIn = () => {
                     id="nomeDela"
                     name="nomeDela"
                     placeholder=""
-                    type="email"
+                    type="text"
+                    onChange={this.onNomeDelaChange}
                   />
                 </FormGroup>
 
                 <Label >São Casados?</Label>
                 <FormGroup>
                   <FormGroup check>
-                    <Input name="radio2" type="radio" />{" "}
+                    <Input name="cassim" type="radio" onChange={this.onCasadosChange}/>{" "}
                     <Label check>
                       Sim
                     </Label>
                   </FormGroup>
                   <FormGroup check>
-                    <Input name="radio2" type="radio" />{" "}
+                    <Input name="casnao" type="radio" onChange={this.onCasadosChange} />{" "}
                     <Label check>
                       Não
                     </Label>
@@ -133,7 +181,7 @@ onSubmitSignIn = () => {
                     </b>
                     Marque a data para realizar a preparação do Batismo de acordo com o disponível no calendário.
                   </Label>
-                  <Input id="exampleSelect" name="select" type="select">
+                  <Input id="dataSelect" name="datapart" type="select" onChange={this.onDataPChange}>
                     <option>16/03/2023</option>
                     <option>16/03/2023</option>
                     <option>16/03/2023</option>
@@ -143,32 +191,35 @@ onSubmitSignIn = () => {
                 </FormGroup>
 
                 <FormGroup>
-                  <Label for="exampleEmail">Endereço:</Label>
+                  <Label for="enderco">Endereço:</Label>
                   <Input
                     id="endereco"
                     name="endereco"
                     placeholder=""
-                    type="email"
+                    type="text"
+                    onChange={this.onEnderecoChange}
                   />
                 </FormGroup>
 
                 <FormGroup>
-                  <Label for="exampleEmail">Cidade:</Label>
+                  <Label for="cidade">Cidade:</Label>
                   <Input
                     id="cidade"
                     name="cidade"
                     placeholder=""
-                    type="email"
+                    type="text"
+                    onChange={this.onCidadeChange}
                   />
                 </FormGroup>
 
                 <FormGroup>
-                  <Label for="exampleEmail">Telefone:</Label>
+                  <Label for="telefone">Telefone:</Label>
                   <Input
                     id="tel"
                     name="tel"
                     placeholder=""
-                    type="email"
+                    type="text"
+                    onChange={this.onTelChange}
                   />
                 </FormGroup>
 
@@ -179,6 +230,7 @@ onSubmitSignIn = () => {
                     multiple
                     name="sacramentos"
                     type="select"
+                    onChange={this.onSacraChange}
                   >
                     <option>Batismo</option>
                     <option>1a. Eucaristia</option>
@@ -189,25 +241,26 @@ onSubmitSignIn = () => {
                 </FormGroup>
 
                 <FormGroup>
-                  <Label for="exampleEmail">Paróquia que Frequenta:</Label>
+                  <Label for="paroquia">Paróquia que Frequenta:</Label>
                   <Input
                     id="paroquia"
                     name="paroquia"
                     placeholder=""
                     type="email"
+                    onChange={this.onParoquiaChange}
                   />
                 </FormGroup>
 
                 <Label >Já participou do Encontro de Casais com Cristo (ECC)?</Label>
                 <FormGroup>
                   <FormGroup check>
-                    <Input name="radio3" type="radio" />{" "}
+                    <Input name="radio3" type="radio" onChange={this.onECCChange}/>{" "}
                     <Label check>
                       Sim
                     </Label>
                   </FormGroup>
                   <FormGroup check>
-                    <Input name="radio3" type="radio" />{" "}
+                    <Input name="radio3" type="radio" onChange={this.onECCChange}/>{" "}
                     <Label check>
                       Não
                     </Label>
@@ -218,7 +271,12 @@ onSubmitSignIn = () => {
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/vrFbVSvKl1g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 <br/>
 
-                <Button>Enviar</Button> 
+                <input
+                    onClick={this.onSubmitSignIn}
+                    className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+                    type="submit"
+                    value="Enviar"
+                  />
               </Form>
             </CardBody>
           </Card>
