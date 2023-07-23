@@ -20,7 +20,7 @@ class Ficha_Batismo extends React.Component {
         tipo: '',
         nomedele: '',
         nomedela: '',
-        casados: '',
+        casados: '0',
         datap: '',
         endereco: '',
         cidade: '',
@@ -160,13 +160,13 @@ onSubmitSignIn = () => {
                 <Label >São Casados?</Label>
                 <FormGroup>
                   <FormGroup check>
-                    <Input name="cassim" type="radio" onChange={this.onCasadosChange}/>{" "}
+                    <Input name="casados" type="radio" value='1' onChange={this.onCasadosChange}/>{" "}
                     <Label check>
                       Sim
                     </Label>
                   </FormGroup>
                   <FormGroup check>
-                    <Input name="casnao" type="radio" onChange={this.onCasadosChange} />{" "}
+                    <Input name="casados" type="radio" value='0' onChange={this.onCasadosChange}/>{" "}
                     <Label check>
                       Não
                     </Label>
