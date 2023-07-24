@@ -17,7 +17,7 @@ class Ficha_Batismo extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-        tipo: '',
+        tipoP: '0',
         nomedele: '',
         nomedela: '',
         casados: '0',
@@ -122,13 +122,13 @@ onSubmitSignIn = () => {
               <FormGroup tag="fieldset">
               <Label >Tipo de Participação:</Label>
                   <FormGroup check>
-                    <Input name="pais" type="radio" onChange={this.onTipoPChange}/>{" "}
+                    <Input name="pp" type="radio" value="1" onChange={this.onTipoPChange}/>{" "}
                     <Label check>
                       Pai(s)
                     </Label>
                   </FormGroup>
                   <FormGroup check>
-                    <Input name="padrinhos" type="radio" onChange={this.onTipoPChange}/>{" "}
+                    <Input name="pp" type="radio" value="0" onChange={this.onTipoPChange}/>{" "}
                     <Label check>
                       Padrinho(s)
                     </Label>
@@ -183,10 +183,10 @@ onSubmitSignIn = () => {
                   </Label>
                   <Input id="dataSelect" name="datapart" type="select" onChange={this.onDataPChange}>
                     <option>16/03/2023</option>
-                    <option>16/03/2023</option>
-                    <option>16/03/2023</option>
-                    <option>16/03/2023</option>
-                    <option>16/03/2023</option>
+                    <option>17/03/2023</option>
+                    <option>18/03/2023</option>
+                    <option>19/03/2023</option>
+                    <option>20/03/2023</option>
                   </Input>
                 </FormGroup>
 
