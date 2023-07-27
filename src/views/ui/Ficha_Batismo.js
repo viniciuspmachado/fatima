@@ -28,6 +28,7 @@ class Ficha_Batismo extends React.Component {
         sacramentos: '',
         paroquia: '',
         ecc: '',
+        batismo: '0'
     }
 };
 
@@ -67,6 +68,10 @@ onSacraChange = (event) => {
   this.setState({sacramentos: event.target.value})
 };
 
+onBatisChange = (event) => {
+  this.setState({batismo: event.target.value})
+};
+
 onParoquiaChange = (event) => {
   this.setState({paroquia: event.target.value})
 };
@@ -90,7 +95,8 @@ onSubmitSignIn = () => {
             telefone: this.state.telefone,
             sacramentos: this.state.sacramentos,
             paroquia: this.state.paroquia,
-            ecc: this.state.ecc
+            ecc: this.state.ecc,
+            batismo: this.state.batismo
         })
     })
         .then(response => response.json())
@@ -225,6 +231,13 @@ onSubmitSignIn = () => {
 
                 <FormGroup>
                   <Label for="exampleSelectMulti">Recebeu quais sacramentos?</Label>
+                  <br/>
+                  <input type="checkbox" name="batismo" value = "1" onChange={this.onBatisChange} />&nbsp;Batismo &nbsp;&nbsp;&nbsp;
+                  <input type="checkbox" name="1euca" value = "2" />&nbsp;1a. Eucaristia &nbsp;&nbsp;&nbsp;
+                  <input type="checkbox" name="crisma" value = "3" />&nbsp;Crisma &nbsp;&nbsp;&nbsp;
+                  <input type="checkbox" name="matrimonio" value = "4" />&nbsp;Matrimônio &nbsp;&nbsp;&nbsp;
+                  <input type="checkbox" name="ordem" value = "5" />&nbsp;Ordem
+
                   <Input
                     id="sacramentos"
                     multiple
