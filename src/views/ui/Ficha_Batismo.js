@@ -28,7 +28,11 @@ class Ficha_Batismo extends React.Component {
         sacramentos: '',
         paroquia: '',
         ecc: '',
-        batismo: '0'
+        batismo: '0',
+        euca: '0',
+        crisma: '0',
+        matrimonio: '0',
+        ordem: '0',
     }
 };
 
@@ -72,6 +76,22 @@ onBatisChange = (event) => {
   this.setState({batismo: event.target.value})
 };
 
+onEucaChange = (event) => {
+  this.setState({euca: event.target.value})
+};
+
+onCrismaChange = (event) => {
+  this.setState({crisma: event.target.value})
+};
+
+onMatriChange = (event) => {
+  this.setState({matrimonio: event.target.value})
+};
+
+onOrdemChange = (event) => {
+  this.setState({ordem: event.target.value})
+};
+
 onParoquiaChange = (event) => {
   this.setState({paroquia: event.target.value})
 };
@@ -96,7 +116,11 @@ onSubmitSignIn = () => {
             sacramentos: this.state.sacramentos,
             paroquia: this.state.paroquia,
             ecc: this.state.ecc,
-            batismo: this.state.batismo
+            batismo: this.state.batismo,
+            euca: this.state.euca,
+            crisma: this.state.crisma,
+            matrimonio: this.state.matrimonio,
+            ordem: this.state.ordem
         })
     })
         .then(response => response.json())
@@ -233,10 +257,10 @@ onSubmitSignIn = () => {
                   <Label for="exampleSelectMulti">Recebeu quais sacramentos?</Label>
                   <br/>
                   <input type="checkbox" name="batismo" value = "1" onChange={this.onBatisChange} />&nbsp;Batismo &nbsp;&nbsp;&nbsp;
-                  <input type="checkbox" name="1euca" value = "2" />&nbsp;1a. Eucaristia &nbsp;&nbsp;&nbsp;
-                  <input type="checkbox" name="crisma" value = "3" />&nbsp;Crisma &nbsp;&nbsp;&nbsp;
-                  <input type="checkbox" name="matrimonio" value = "4" />&nbsp;Matrimônio &nbsp;&nbsp;&nbsp;
-                  <input type="checkbox" name="ordem" value = "5" />&nbsp;Ordem
+                  <input type="checkbox" name="euca" value = "2" onChange={this.onEucaChange} />&nbsp;1a. Eucaristia &nbsp;&nbsp;&nbsp;
+                  <input type="checkbox" name="crisma" value = "3" onChange={this.onCrismaChange}/>&nbsp;Crisma &nbsp;&nbsp;&nbsp;
+                  <input type="checkbox" name="matrimonio" value = "5" onChange={this.onMatriChange}/>&nbsp;Matrimônio &nbsp;&nbsp;&nbsp;
+                  <input type="checkbox" name="ordem" value = "4" onChange={this.onOrdemChange}/>&nbsp;Ordem
 
                   <Input
                     id="sacramentos"
