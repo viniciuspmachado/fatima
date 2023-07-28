@@ -12,6 +12,7 @@ import {
   /*FormText,*/
 } from "reactstrap";
 import React from 'react';
+import OptParoquias from "../../components/OptParoquias";
 
 class Ficha_Batismo extends React.Component {
   constructor(props){
@@ -262,7 +263,7 @@ onSubmitSignIn = () => {
                   <input type="checkbox" name="matrimonio" value = "5" onChange={this.onMatriChange}/>&nbsp;Matrimônio &nbsp;&nbsp;&nbsp;
                   <input type="checkbox" name="ordem" value = "4" onChange={this.onOrdemChange}/>&nbsp;Ordem
 
-                  <Input
+                  {/* <Input
                     id="sacramentos"
                     multiple
                     name="sacramentos"
@@ -274,19 +275,11 @@ onSubmitSignIn = () => {
                     <option>Crisma</option>
                     <option>Matrimônio</option>
                     <option>Ordem</option>
-                  </Input>
+                  </Input>*/}
                 </FormGroup>
-
-                <FormGroup>
-                  <Label for="paroquia">Paróquia que Frequenta:</Label>
-                  <Input
-                    id="paroquia"
-                    name="paroquia"
-                    placeholder=""
-                    type="email"
-                    onChange={this.onParoquiaChange}
-                  />
-                </FormGroup>
+                    
+                    <OptParoquias />
+                    
 
                 <Label >Já participou do Encontro de Casais com Cristo (ECC)?</Label>
                 <FormGroup>
