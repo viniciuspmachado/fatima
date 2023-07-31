@@ -4,7 +4,7 @@ import {
   Col,
   CardTitle,
   CardBody,
-  Button,
+  //Button,
   Form,
   FormGroup,
   Label,
@@ -13,6 +13,7 @@ import {
 } from "reactstrap";
 import React from 'react';
 import OptParoquias from "../../components/OptParoquias";
+import OptDatasBat from "../../components/OptDatasBat";
 
 class Ficha_Batismo extends React.Component {
   
@@ -216,11 +217,7 @@ onSubmitSignIn = () => {
                     Marque a data para realizar a preparação do Batismo de acordo com o disponível no calendário.
                   </Label>
                   <Input id="dataSelect" name="datapart" type="select" onChange={this.onDataPChange}>
-                    <option>16/03/2023</option>
-                    <option>17/03/2023</option>
-                    <option>18/03/2023</option>
-                    <option>19/03/2023</option>
-                    <option>20/03/2023</option>
+                    <OptDatasBat/>
                   </Input>
                 </FormGroup>
 

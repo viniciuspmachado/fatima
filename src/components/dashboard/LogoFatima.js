@@ -1,4 +1,4 @@
-import { Card, CardImg, CardBody, CardTitle, CardSubtitle, Table } from "reactstrap";
+import { CardImg } from "reactstrap";
 import logofatima from "../../assets/images/logos/logofatima.svg";
 
 var cardStyle = {

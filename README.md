@@ -19,6 +19,14 @@ CREATE TABLE batismo (
 	PRIMARY KEY (id)
 );
 ```
+
+### Criar tableas Datas Batismo
+```
+CREATE TABLE datas_bat (
+	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    data date
+);
+```
 ### Criar tabela Sacramentos
 ```
 CREATE TABLE sacramentos (

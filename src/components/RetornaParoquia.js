@@ -20,7 +20,7 @@ function RetornaParoquia(props) {
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, []); 
     
     return (
         

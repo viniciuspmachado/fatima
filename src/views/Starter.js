@@ -1,6 +1,6 @@
 import { Col, Row } from "reactstrap";
-import SalesChart from "../components/dashboard/SalesChart";
-import Feeds from "../components/dashboard/Feeds";
+//import SalesChart from "../components/dashboard/SalesChart";
+//import Feeds from "../components/dashboard/Feeds";
 
 import Blog from "../components/dashboard/Blog";
 import bg1 from "../assets/images/bg/bg1.jpg";
