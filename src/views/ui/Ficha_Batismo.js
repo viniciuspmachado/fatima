@@ -15,6 +15,7 @@ import React from 'react';
 import OptParoquias from "../../components/OptParoquias";
 
 class Ficha_Batismo extends React.Component {
+  
   constructor(props){
     super(props);
     this.state = {
@@ -27,8 +28,8 @@ class Ficha_Batismo extends React.Component {
         cidade: '',
         telefone: '',
         sacramentos: '',
-        paroquia: '',
-        ecc: '',
+        paroquia: '1',
+        ecc: '0',
         batismo: '0',
         euca: '0',
         crisma: '0',
@@ -133,8 +134,10 @@ onSubmitSignIn = () => {
             }
         })
 }
-  
+
   render() {
+    
+    
     return (
       <Row>
         <Col>
@@ -277,20 +280,24 @@ onSubmitSignIn = () => {
                     <option>Ordem</option>
                   </Input>*/}
                 </FormGroup>
-                    
-                    <OptParoquias />
+                
+                <FormGroup>
+                  <Input id="dataSelect" name="paroquia" type="select" onChange={this.onParoquiaChange}>
+                    <OptParoquias/>
+                  </Input>
+                </FormGroup>
                     
 
                 <Label >Já participou do Encontro de Casais com Cristo (ECC)?</Label>
                 <FormGroup>
                   <FormGroup check>
-                    <Input name="radio3" type="radio" onChange={this.onECCChange}/>{" "}
+                    <Input name="radio3" value="1" type="radio" onChange={this.onECCChange}/>{" "}
                     <Label check>
                       Sim
                     </Label>
                   </FormGroup>
                   <FormGroup check>
-                    <Input name="radio3" type="radio" onChange={this.onECCChange}/>{" "}
+                    <Input name="radio3" value="0" type="radio" onChange={this.onECCChange}/>{" "}
                     <Label check>
                       Não
                     </Label>

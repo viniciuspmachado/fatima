@@ -26,15 +26,17 @@ function OptParoquias() {
         fetchData();
     }, []);
     
+   
+
     return (
-        <FormGroup>
+        
+         <optgroup label="Swedish Cars">
             {/* Tem que colocar o onChange={this.onParoquiaChange} no input abaixo: */}
-            <Input id="dataSelect" name="paroquia" type="select" >
+            
                     {data.map((item, index) => (
                         <option value={item.id}>{item.nome}</option>
                     ))}
-            </Input>
-        </FormGroup>
+        </optgroup>
     );
 }
 
