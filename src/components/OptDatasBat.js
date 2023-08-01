@@ -21,15 +21,17 @@ function OptDatasBat() {
         fetchData();
     }, []);
     
-   
+   let dataz = '';
 
     return (
         
-         <optgroup label="datas batismo">
+         <optgroup label="Marque a data">
             
                     {data.map((item, index) => (
+                        //<option value={item.id}>{item.id}</option>
                         //<option value={item.id}>{new Date(item.data).toLocaleTimeString('pt-BR')}</option>
-                        <option value={item.id}>{"0"+new Date(item.data).getDay()+"/"+new Date(item.data).getMonth()+"/"+new Date(item.data).getYear()}</option>
+                        //<option value={item.id}>{"0"+new Date(item.data).getDay()+"/"+new Date(item.data).getMonth()+"/"+new Date(item.data).getYear()}</option>
+                        <option value={item.data}>{item.data}</option>
                     ))}
         </optgroup>
     );

@@ -24,7 +24,7 @@ CREATE TABLE batismo (
 ```
 CREATE TABLE datas_bat (
 	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    data date
+    data CHAR(10) NOT NULL
 );
 ```
 ### Criar tabela Sacramentos

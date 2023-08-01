@@ -1,15 +1,15 @@
 INSERT INTO datas_bat (data)
-	VALUES ('2023-03-16'); 
+	VALUES ('06/03/2023'); 
     
 INSERT INTO datas_bat (data)
-	VALUES ('2023-03-17'); 
+	VALUES ('17/03/2023'); 
     
 INSERT INTO datas_bat (data)
-	VALUES ('2023-03-18'); 
+	VALUES ('18/03/2023'); 
 
 INSERT INTO datas_bat (data)
-	VALUES ('2023-03-19'); 
+	VALUES ('09/03/2023'); 
 
 INSERT INTO datas_bat (data)
-	VALUES ('2023-03-20'); 
+	VALUES ('20/03/2023'); 
     

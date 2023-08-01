@@ -24,7 +24,7 @@ class Ficha_Batismo extends React.Component {
         nomedele: '',
         nomedela: '',
         casados: '0',
-        datap: '',
+        datap: '-',
         endereco: '',
         cidade: '',
         telefone: '',
@@ -217,6 +217,7 @@ onSubmitSignIn = () => {
                     Marque a data para realizar a preparação do Batismo de acordo com o disponível no calendário.
                   </Label>
                   <Input id="dataSelect" name="datapart" type="select" onChange={this.onDataPChange}>
+                  <option value='-'>-</option>
                     <OptDatasBat/>
                   </Input>
                 </FormGroup>
