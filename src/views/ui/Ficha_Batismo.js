@@ -21,13 +21,13 @@ class Ficha_Batismo extends React.Component {
     super(props);
     this.state = {
         tipoP: '0',
-        nomedele: '',
-        nomedela: '',
-        casados: '0',
-        datap: '-',
-        endereco: '',
-        cidade: '',
-        telefone: '',
+        nomedele: 'Popeye',
+        nomedela: 'Olívia',
+        casados: '1',
+        datap: '16/09/2023',
+        endereco: 'Rua Gugu',
+        cidade: 'Terra dos Brutos',
+        telefone: '58954899',
         sacramentos: '',
         paroquia: '1',
         ecc: '0',
@@ -126,12 +126,14 @@ onSubmitSignIn = () => {
             ordem: this.state.ordem
         })
     })
-        .then(response => response.json())
-        .then(user => {
-            if (user) {
-               alert(user);
-               this.props.loadUser(user);
-               this.props.onRouteChange('home'); 
+        .then(response => {response.json();
+            alert(response);
+      })
+        .then(users => {
+            if (users) {
+               alert(users);
+               this.props.loadUser(users);
+               this.props.onRouteChange('/'); 
             }
         })
 }

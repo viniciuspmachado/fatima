@@ -10,7 +10,7 @@ CREATE TABLE batismo (
     nome_ele text(500),
     nome_ela text(500),
     casados boolean, #Casados (1), Não (0)
-    dt_participacao date,
+    dt_participacao char(10),
     endereco text(1000),
     cidade tinytext,
     telefone text(20),
