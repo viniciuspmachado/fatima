@@ -5,8 +5,8 @@ Criar banco de dados fatimaDB
 ```
 CREATE TABLE batismo (
 	id int NOT NULL AUTO_INCREMENT,
-    dt_cadasto datetime default(CURRENT_DATE),
-    t_paticipacao boolean, #Padrinhos (0), Pais (1)
+    dt_cadastro datetime default(CURRENT_DATE),
+    t_participacao boolean, #Padrinhos (0), Pais (1)
     nome_ele text(500),
     nome_ela text(500),
     casados boolean, #Casados (1), Não (0)

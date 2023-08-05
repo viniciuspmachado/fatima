@@ -21,8 +21,8 @@ class Ficha_Batismo extends React.Component {
     super(props);
     this.state = {
         tipoP: '0',
-        nomedele: 'Popeye',
-        nomedela: 'Olívia',
+        nomedele: 'Pinto',
+        nomedela: 'Nina',
         casados: '1',
         datap: '16/09/2023',
         endereco: 'Rua Gugu',
@@ -103,8 +103,8 @@ onECCChange = (event) => {
     this.setState({ecc: event.target.value})
 };
 
-onSubmitSignIn = () => {
-    fetch('http://localhost:3001/register', {
+onSubmitSignIn = async () => {
+    await fetch('http://localhost:3001/register', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -126,14 +126,16 @@ onSubmitSignIn = () => {
             ordem: this.state.ordem
         })
     })
-        .then(response => {response.json();
-            alert(response);
-      })
+        .then(alert("Agendamento realizado com Sucesso!"))
+        .then(response => {response.json()
+          //console.log(response.users[0])
+          window.location.replace('/');
+        })
         .then(users => {
             if (users) {
-               alert(users);
-               this.props.loadUser(users);
-               this.props.onRouteChange('/'); 
+              console.log('2==>',users);
+               //this.props.loadUser(user);
+               //this.props.onRouteChange('/'); 
             }
         })
 }
