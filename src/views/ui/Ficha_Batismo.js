@@ -20,14 +20,14 @@ class Ficha_Batismo extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-        tipoP: '0',
-        nomedele: 'Pinto',
-        nomedela: 'Nina',
-        casados: '1',
-        datap: '16/09/2023',
-        endereco: 'Rua Gugu',
-        cidade: 'Terra dos Brutos',
-        telefone: '58954899',
+        tipoP: '',
+        nomedele: '',
+        nomedela: '',
+        casados: '0',
+        datap: '',
+        endereco: '',
+        cidade: '',
+        telefone: '',
         sacramentos: '',
         paroquia: '1',
         ecc: '0',
@@ -104,6 +104,25 @@ onECCChange = (event) => {
 };
 
 onSubmitSignIn = async () => {
+  
+  let error = 0;
+
+  if(this.state.tipoP.trim() == ''){
+    alert("Por favor, selecione o tipo de participação (pais ou padrinhos)!");
+    error = 1;
+  } 
+  
+  if(this.state.nomedele.trim() == '' && this.state.nomedela.trim() == ''){
+    alert("Por favor, preencha pelo menos nome de um participante!");
+    error = 1;
+  } 
+  
+  if(this.state.datap.trim() == ''){
+    alert("Por favor , informe a data para a preparação para o Batismo!");
+    error = 1;
+  } 
+
+  if (error == 0){
     await fetch('http://localhost:3001/register', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
@@ -138,6 +157,7 @@ onSubmitSignIn = async () => {
                //this.props.onRouteChange('/'); 
             }
         })
+  }
 }
 
   render() {
@@ -205,7 +225,7 @@ onSubmitSignIn = async () => {
                     </Label>
                   </FormGroup>
                   <FormGroup check>
-                    <Input name="casados" type="radio" value='0' onChange={this.onCasadosChange}/>{" "}
+                    <Input name="casados" type="radio" value='0' onChange={this.onCasadosChange} checked/>{" "}
                     <Label check>
                       Não
                     </Label>
@@ -299,7 +319,7 @@ onSubmitSignIn = async () => {
                     </Label>
                   </FormGroup>
                   <FormGroup check>
-                    <Input name="radio3" value="0" type="radio" onChange={this.onECCChange}/>{" "}
+                    <Input name="radio3" value="0" type="radio" onChange={this.onECCChange} checked/>{" "}
                     <Label check>
                       Não
                     </Label>
