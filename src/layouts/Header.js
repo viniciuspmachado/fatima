@@ -5,7 +5,7 @@ import {
   Collapse,
   Nav,
   NavItem,
-  NavbarBrand,
+  //NavbarBrand,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
@@ -14,10 +14,12 @@ import {
   Button,
   Badge,
 } from "reactstrap";
-import Logo from "./Logo";
-import { ReactComponent as LogoWhite } from "../assets/images/logos/materialprowhite.svg";
+//import Logo from "./Logo";
+//import { ReactComponent as LogoWhite } from "../assets/images/logos/materialprowhite.svg";
 import user1 from "../assets/images/users/user4.jpg";
 import Evangelho from "../components/Evangelho";
+import logoTop from "../assets/images/logos/logofatimaTop.svg";
+//import logoTopMob from "../assets/images/logos/logofatimaTopMob.svg";
 
 const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -34,13 +36,15 @@ const Header = () => {
   return (
     <div>
         <Navbar color="primary" dark expand="md" className="fix-header">
-        {/* <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center">
           <div className="d-lg-block d-none me-5 pe-3">
-            <Logo />
+          <img
+                src={logoTop}
+                alt="profile"
+                width="250"
+              ></img>
           </div>
-          <NavbarBrand href="/">
-            <LogoWhite className=" d-lg-none" />
-          </NavbarBrand>
+          
           <Button
             color="primary"
             className=" d-lg-none"
@@ -63,7 +67,7 @@ const Header = () => {
             )}
           </Button>
         </div>
- */}
+
         <Collapse navbar isOpen={isOpen}>
           <Nav className="me-auto" navbar>
             <NavItem>

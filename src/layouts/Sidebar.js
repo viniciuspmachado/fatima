@@ -1,7 +1,7 @@
 import { Button, Nav, NavItem } from "reactstrap";
 import { Link, useLocation } from "react-router-dom";
-import user1 from "../assets/images/users/user4.jpg";
-import probg from "../assets/images/bg/logo_paroquia.jpg";
+//import user1 from "../assets/images/users/user4.jpg";
+import probg from "../assets/images/logos/logoCampanha.svg";
 
 const navigation = [
   {
@@ -66,11 +66,13 @@ const Sidebar = () => {
     <div>
       <div className="d-flex align-items-center"></div>
       <div
-        className="profilebg"
-        style={{ background: `url(${probg}) no-repeat` }}
+        className="profilebg align-items-center"
+        //style={{ background: `url(${probg}) no-repeat` }}
       >
-        <div className="p-3 d-flex">
-          <img src={user1} alt="user" width="50" className="rounded-circle" />
+        <div className="p-3 d-flex align-items-center" >
+          <center>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src={probg} alt="user" width="130"  />
+          
           <Button
             color="white"
             className="ms-auto text-white d-lg-none"
@@ -78,6 +80,7 @@ const Sidebar = () => {
           >
             <i className="bi bi-x"></i>
           </Button>
+          </center>
         </div>
         <div className="bg-dark text-white p-2 opacity-75">Steave Rojer</div>
       </div>

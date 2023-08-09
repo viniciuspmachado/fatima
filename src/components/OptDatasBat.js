@@ -21,8 +21,6 @@ function OptDatasBat() {
         fetchData();
     }, []);
     
-   let dataz = '';
-
     return (
         
          <optgroup label="Marque a data">
