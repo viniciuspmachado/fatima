@@ -23,7 +23,7 @@ function OptDatasBat() {
     
     return (
         
-         <optgroup label="Marque a data">
+         <optgroup label="Selecione a data">
             
                     {data.map((item, index) => (
                         //<option value={item.id}>{item.id}</option>
