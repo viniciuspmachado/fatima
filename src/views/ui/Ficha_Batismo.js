@@ -107,22 +107,22 @@ onSubmitSignIn = async () => {
   
   let error = 0;
 
-  if(this.state.tipoP.trim() == ''){
+  if(this.state.tipoP.trim() === ''){
     alert("Por favor, selecione o tipo de participação (pais ou padrinhos)!");
     error = 1;
   } 
   
-  if(this.state.nomedele.trim() == '' && this.state.nomedela.trim() == ''){
+  if(this.state.nomedele.trim() === '' && this.state.nomedela.trim() === ''){
     alert("Por favor, preencha pelo menos nome de um participante!");
     error = 1;
   } 
   
-  if(this.state.datap.trim() == ''){
+  if(this.state.datap.trim() === ''){
     alert("Por favor , informe a data para a preparação para o Batismo!");
     error = 1;
   } 
 
-  if (error == 0){
+  if (error === 0){
     await fetch('http://localhost:3001/register', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
@@ -304,6 +304,7 @@ onSubmitSignIn = async () => {
                 </FormGroup>
                 
                 <FormGroup>
+                <Label for="exampleSelectMulti">Qual a paróquia que frequenta?</Label>
                   <Input id="dataSelect" name="paroquia" type="select" onChange={this.onParoquiaChange}>
                     <OptParoquias/>
                   </Input>

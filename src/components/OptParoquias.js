@@ -25,7 +25,7 @@ function OptParoquias() {
 
     return (
         
-         <optgroup label="Swedish Cars">
+         <optgroup label="Selecione a paróquia que frequenta">
             {/* Tem que colocar o onChange={this.onParoquiaChange} no input abaixo: */}
             
                     {data.map((item, index) => (
