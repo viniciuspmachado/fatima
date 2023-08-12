@@ -2,19 +2,25 @@ import LinhaTab from "../../components/LinhaTab";
 import { Row, Col, Card, CardTitle, CardBody, FormGroup, Input, FormText } from "reactstrap";
 import OptDatasBat from "../../components/OptDatasBat";
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 class Tables extends React.Component {
   
   constructor(props){
     super(props);
     this.state = {
-        datap: ''
+        datap: '16/03/2023'
     }
 };
 
+
+
 onDataPChange = (event) => {
+  //const navigate = useNavigate();
+  //const {datasel} = req.params;
   this.setState({datap: event.target.value});
   alert(event.target.value);
+  //window.location.href = "http://localhost:3000/table#/table/"+this.state.datap;
 };
   
   
@@ -33,14 +39,14 @@ onDataPChange = (event) => {
                     
                       <Input id="dataSelect" name="datapart" type="select" onChange={this.onDataPChange}>
                       <option value='-'>-</option>
-                        <OptDatasBat/>
+                        <OptDatasBat />
                       </Input>
                     </Col>
                   </FormGroup>
             </CardTitle>
             <CardBody className="">
                   
-                  <LinhaTab />
+                  <LinhaTab datasel={this.state.datap} />
               
             </CardBody>
           </Card>

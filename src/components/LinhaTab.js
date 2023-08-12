@@ -5,12 +5,13 @@ import RemoveNull from "./RemoveNull";
 import Casados from "./Casados";
 import TipoPartic from "./TipoPartic";
 
-function LinhaTab() {
+function LinhaTab(props) {
     
+    const dataselz = props.datasel.replaceAll("/","-");
     const [data, setData] = useState([]);
-
     const fetchData = () => {
-        fetch('http://localhost:3001/participantes')
+        console.log('http://localhost:3001/participantes/', dataselz);
+        fetch('http://localhost:3001/participantes/'+ dataselz)
         .then((response) => response.json())
         .then((actualData) => {
             //console.log(actualData);
