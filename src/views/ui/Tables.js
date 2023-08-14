@@ -2,18 +2,23 @@ import LinhaTab from "../../components/LinhaTab";
 import { Row, Col, Card, CardTitle, CardBody, FormGroup, Input, FormText } from "reactstrap";
 import OptDatasBat from "../../components/OptDatasBat";
 import React from 'react';
-//import { withRouter  } from 'react-router';
+import { useSearchParams } from 'react-router-dom';
+
+
 
 class Tables extends React.Component {
   
-  constructor(props){
+   constructor(props){
     super(props);
+    //alert(window.location.href);
+    let variavel = 'zzz';
     this.state = {
-        datap: '09/03/2023'
+        datap: '09/03/2023',
+        variavel: window.location.href
     }
-};
+  }; 
 
-
+  
 
 
 onDataPChange = (event) => {
@@ -24,10 +29,17 @@ onDataPChange = (event) => {
   //window.location.href = "http://localhost:3000/table#/table/"+this.state.datap;
 };
   
+
   
   render() {
-    //const ddd = this.props.match.params.data;
-    alert(ddd);
+    const queryString = this.state.variavel;
+    const urlParams = new URLSearchParams(queryString);
+    const data = urlParams.get('data')
+    //const queryParameters = new URLSearchParams(url)
+    //const data = queryParameters("data")
+    alert('queryString==>'+queryString);
+    alert('urlParams==>'+urlParams);
+    alert('data==>'+data);
     return (
       <Row>
         <Col lg="12">
