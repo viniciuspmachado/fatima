@@ -2,16 +2,17 @@ import LinhaTab from "../../components/LinhaTab";
 import { Row, Col, Card, CardTitle, CardBody, FormGroup, Input, FormText } from "reactstrap";
 import OptDatasBat from "../../components/OptDatasBat";
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+//import { withRouter  } from 'react-router';
 
 class Tables extends React.Component {
   
   constructor(props){
     super(props);
     this.state = {
-        datap: '16/03/2023'
+        datap: '09/03/2023'
     }
 };
+
 
 
 
@@ -25,7 +26,8 @@ onDataPChange = (event) => {
   
   
   render() {
-  
+    //const ddd = this.props.match.params.data;
+    alert(ddd);
     return (
       <Row>
         <Col lg="12">

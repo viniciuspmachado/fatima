@@ -32,7 +32,7 @@ const ThemeRoutes = [
       { path: "/buttons", exact: true, element: <Buttons /> },
       { path: "/cards", exact: true, element: <Cards /> },
       { path: "/grid", exact: true, element: <Grid /> },
-      { path: "/table", exact: true, element: <Tables /> },
+      { path: "/table/:data?", exact: true, element: <Tables /> },
       { path: "/FichaBatismo", exact: true, element: <FichaBatismo /> },
       { path: "/breadcrumbs", exact: true, element: <Breadcrumbs /> },
     ],
