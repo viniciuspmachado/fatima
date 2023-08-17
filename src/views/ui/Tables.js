@@ -14,7 +14,9 @@ class Tables extends React.Component {
   }; 
 
   onSubmitSignIn = async () => {
-    alert('Gerando PDF');
+    //alert('Gerando PDF');
+    window.location.replace ('http://localhost:3000/#/mostrapdf');
+    //window.open('http://localhost:3000/#/mostrapdf', '_blank').focus();
   }
 
   onDataPChange = (event) => {

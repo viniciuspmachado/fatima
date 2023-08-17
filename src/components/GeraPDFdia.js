@@ -32,10 +32,24 @@ import {
     },
 
     table: {
+      width: '100%',
+      margin: 10,
+      padding: 10,
+      fontSize:8,
+    },
+      tableh: {
         width: '100%',
         margin: 10,
         padding: 10,
         fontSize:8,
+      },
+      rowh: {
+        display: 'flex',
+        flexDirection: 'row',
+        borderTop: '1px solid #EEE',
+        paddingTop: 8,
+        paddingBottom: 8,
+        fontSize:12,
       },
       row: {
         display: 'flex',
@@ -66,6 +80,17 @@ import {
       row5: {
         width: '27%',
       },
+      subtitulo: {
+        fontSize:10,
+        paddingBottom: 4,
+        paddingTop: 4,
+      },
+      row11: {
+        width: '40%',
+      },
+      row22: {
+        width: '60%',
+      },
   });
   
   // Create Document Component
@@ -76,11 +101,24 @@ import {
         <Document>
           {/*render a single page*/}
           <Page size="A4" style={styles.page}>
+            
+            
+            {/* ======== Cabeçalho ======== */}
             <View fixed style={styles.header}>
-                <Text>Olá</Text>
+              <View style={styles.table}>
+                <View style={[styles.rowh, styles.bold, styles.headerT]}>
+                    <Text style={styles.row11}>Logo</Text>
+                    <Text style={styles.row22}>
+                      Paróquia Nossa Senhora de Fátima
+                    </Text>
+                </View>
                 <hr style={styles.line}/>
+                <Text style={styles.subtitulo}>Lista de Preparação para o Sacramento do Batismo</Text>
+              </View>
             </View>
-            <View style={styles.table}>
+
+            {/* ======== Tabela Participantes ======== */}
+            <View style={styles.tableh}>
                 <View style={[styles.row, styles.bold, styles.headerT]}>
                     <Text style={styles.row1}>Nome Dele</Text>
                     <Text style={styles.row2}>Nome Dela</Text>
@@ -92,7 +130,7 @@ import {
                     <Text style={styles.row1}>
                         <Text style={styles.bold}>João Pedro dos Anzóis Pereira</Text>
                     </Text>
-                    <Text style={styles.row2}>Maria Joaquina dos Anzóis Pereira</Text>
+                    <Text style={styles.row2}>Maria Joaquina dos Anzóis Pereira de Carbalho Araújo Ponte Machado de Brito</Text>
                     <Text style={styles.row3}>Sim</Text>
                     <Text style={styles.row4}>
                         <Text style={styles.bold}>Pais</Text> 
@@ -109,6 +147,7 @@ import {
                         <Text style={styles.bold}>Padrinhos</Text>
                     </Text>
                 </View>
+
             </View>
            
           </Page>
