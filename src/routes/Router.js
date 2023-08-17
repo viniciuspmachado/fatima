@@ -16,6 +16,7 @@ const Grid = lazy(() => import("../views/ui/Grid"));
 const Tables = lazy(() => import("../views/ui/Tables"));
 const FichaBatismo = lazy(() => import("../views/ui/Ficha_Batismo"));
 const Breadcrumbs = lazy(() => import("../views/ui/Breadcrumbs"));
+const MostraPDF = lazy(() => import("../views/ui/MostraPDF"));
 
 /*****Routes******/
 
@@ -35,6 +36,7 @@ const ThemeRoutes = [
       { path: "/table/:data?", exact: true, element: <Tables /> },
       { path: "/FichaBatismo", exact: true, element: <FichaBatismo /> },
       { path: "/breadcrumbs", exact: true, element: <Breadcrumbs /> },
+      { path: "/mostrapdf", exact: true, element: <MostraPDF /> },
     ],
   },
 ];

@@ -82,7 +82,7 @@ const Sidebar = () => {
           </Button>
           </center>
         </div>
-        <div className="bg-dark text-white p-2 opacity-75">Steave Rojer</div>
+        <div className="bg-dark text-white p-2 opacity-75">Vinicius Machado</div>
       </div>
       <div className="p-3 mt-2">
         <Nav vertical className="sidebarNav">
