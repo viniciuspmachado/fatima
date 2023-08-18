@@ -5,7 +5,11 @@ import {
     View,
     StyleSheet,
     PDFViewer,
+    Image,
   } from "@react-pdf/renderer";
+
+  import logoFatima from '../assets/images/bg/logo_paroquia.jpg';
+
   // Create styles
   const styles = StyleSheet.create({
     page: {
@@ -21,20 +25,22 @@ import {
       height: window.innerHeight,
     },
     header: {
-        margin: 10,
-        padding: 10,
-        textAlign: 'center',
+        margin: 5,
+        padding: 5,
+        alignItems: 'center',
     },
+    
     line: {
         border: '1px solid black',
         borderRadius: '1px',
+        
         
     },
 
     table: {
       width: '100%',
-      margin: 10,
-      padding: 10,
+      margin: 5,
+      padding: 5,
       fontSize:8,
     },
       tableh: {
@@ -84,6 +90,8 @@ import {
         fontSize:10,
         paddingBottom: 4,
         paddingTop: 4,
+        textAlign: 'center',
+        borderTop: '1px solid #000',
       },
       row11: {
         width: '40%',
@@ -91,6 +99,15 @@ import {
       row22: {
         width: '60%',
       },
+      image: {
+        width: 80,
+        alignContent: 'center',
+        paddingBottom: 4,
+    },
+    data: {
+      
+      fontSize:8,
+    },
   });
   
   // Create Document Component
@@ -105,17 +122,15 @@ import {
             
             {/* ======== Cabeçalho ======== */}
             <View fixed style={styles.header}>
-              <View style={styles.table}>
-                <View style={[styles.rowh, styles.bold, styles.headerT]}>
-                    <Text style={styles.row11}>Logo</Text>
-                    <Text style={styles.row22}>
-                      Paróquia Nossa Senhora de Fátima
-                    </Text>
-                </View>
-                <hr style={styles.line}/>
-                <Text style={styles.subtitulo}>Lista de Preparação para o Sacramento do Batismo</Text>
-              </View>
+              <Image style={styles.image} src={logoFatima} />
+              <Text style={styles.subtitulo}>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  Lista de Preparação para o Sacramento do Batismo
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </Text>
+              <Text style={styles.data}>16/03/2023</Text>
             </View>
+            
 
             {/* ======== Tabela Participantes ======== */}
             <View style={styles.tableh}>
@@ -149,7 +164,6 @@ import {
                 </View>
 
             </View>
-           
           </Page>
         </Document>
       </PDFViewer>
