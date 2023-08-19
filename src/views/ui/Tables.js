@@ -14,8 +14,16 @@ class Tables extends React.Component {
   }; 
 
   onSubmitSignIn = async () => {
+    const queryString = this.state.variavel.substring(this.state.variavel.indexOf('?'));
+    const urlParams = new URLSearchParams(queryString);
+    let data = urlParams.get('data')
+    if (data != null) {
+      data = data.replaceAll("-","/");
+    } else {
+      data = '-';  
+    }
     //alert('Gerando PDF');
-    window.location.replace ('http://localhost:3000/#/mostrapdf');
+    window.location.replace ('http://localhost:3000/#/mostrapdf?data='+data);
     //window.open('http://localhost:3000/#/mostrapdf', '_blank').focus();
   }
 

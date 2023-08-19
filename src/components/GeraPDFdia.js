@@ -112,6 +112,19 @@ import {
   
   // Create Document Component
   function GeraPDFdia() {
+    
+    //alert(window.location.hash);
+    const hash  = window.location.hash;
+    const queryString = hash.substring(hash.indexOf('?'));
+    alert(queryString);
+    const urlParams = new URLSearchParams(queryString);
+    let data = urlParams.get('data')
+    if (data != null) {
+      data = data.replaceAll("-","/");
+    } else {
+      data = '-';  
+    }
+    
     return (
       <PDFViewer style={styles.viewer}>
         {/* Start of the document*/}
@@ -128,7 +141,7 @@ import {
                   Lista de Preparação para o Sacramento do Batismo
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               </Text>
-              <Text style={styles.data}>16/03/2023</Text>
+              <Text style={styles.data}>{data}</Text>
             </View>
             
 
