@@ -7,7 +7,7 @@ import {
     PDFViewer,
     Image,
   } from "@react-pdf/renderer";
-
+  import LinhaTabPDF from "./LinhaTabPDF";
   import logoFatima from '../assets/images/bg/logo_paroquia.jpg';
 
   // Create styles
@@ -166,14 +166,7 @@ import {
                 </View>
 
                 <View style={styles.row} wrap={false}>
-                    <Text style={styles.row1}>
-                        <Text style={styles.bold}>Zezin dos Caracóis Silva</Text>
-                    </Text>
-                    <Text style={styles.row2}>Joana Doidinha Silva</Text>
-                    <Text style={styles.row3}>Não</Text>
-                    <Text style={styles.row4}>
-                        <Text style={styles.bold}>Padrinhos</Text>
-                    </Text>
+                {/* <LinhaTabPDF datasel={data} /> */}
                 </View>
 
             </View>
