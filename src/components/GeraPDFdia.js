@@ -116,7 +116,7 @@ import {
     //alert(window.location.hash);
     const hash  = window.location.hash;
     const queryString = hash.substring(hash.indexOf('?'));
-    alert(queryString);
+    //alert(queryString);
     const urlParams = new URLSearchParams(queryString);
     let data = urlParams.get('data')
     if (data != null) {
@@ -153,21 +153,9 @@ import {
                     <Text style={styles.row3}>Casados?</Text>
                     <Text style={styles.row4}>Participação</Text>
                 </View>
-
-                <View style={styles.row} wrap={false}>
-                    <Text style={styles.row1}>
-                        <Text style={styles.bold}>João Pedro dos Anzóis Pereira</Text>
-                    </Text>
-                    <Text style={styles.row2}>Maria Joaquina dos Anzóis Pereira de Carbalho Araújo Ponte Machado de Brito</Text>
-                    <Text style={styles.row3}>Sim</Text>
-                    <Text style={styles.row4}>
-                        <Text style={styles.bold}>Pais</Text> 
-                    </Text>
-                </View>
-
-                <View style={styles.row} wrap={false}>
-                {/* <LinhaTabPDF datasel={data} /> */}
-                </View>
+                
+                <LinhaTabPDF datasel={data} />
+                
 
             </View>
           </Page>
