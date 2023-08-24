@@ -13,10 +13,11 @@ const Badges = lazy(() => import("../views/ui/Badges"));
 const Buttons = lazy(() => import("../views/ui/Buttons"));
 const Cards = lazy(() => import("../views/ui/Cards"));
 const Grid = lazy(() => import("../views/ui/Grid"));
-const Tables = lazy(() => import("../views/ui/Tables"));
-const FichaBatismo = lazy(() => import("../views/ui/Ficha_Batismo"));
+const InscBatismo = lazy(() => import("../views/ui/m_batismo/InscBatismo.js"));
+const FichaBatismo = lazy(() => import("../views/ui/m_batismo/Ficha_Batismo.js"));
+const CadastroDatas = lazy(() => import("../views/ui/m_batismo/CadastroDatas.js"));
 const Breadcrumbs = lazy(() => import("../views/ui/Breadcrumbs"));
-const MostraPDF = lazy(() => import("../views/ui/MostraPDF"));
+const MostraPDF = lazy(() => import("../views/ui/m_batismo/MostraPDF.js"));
 
 /*****Routes******/
 
@@ -33,8 +34,9 @@ const ThemeRoutes = [
       { path: "/buttons", exact: true, element: <Buttons /> },
       { path: "/cards", exact: true, element: <Cards /> },
       { path: "/grid", exact: true, element: <Grid /> },
-      { path: "/table/:data?", exact: true, element: <Tables /> },
+      { path: "/InscBatismo/:data?", exact: true, element: <InscBatismo /> },
       { path: "/FichaBatismo", exact: true, element: <FichaBatismo /> },
+      { path: "/CadastroDatas", exact: true, element: <CadastroDatas /> },
       { path: "/breadcrumbs", exact: true, element: <Breadcrumbs /> },
       { path: "/mostrapdf", exact: true, element: <MostraPDF /> },
     ],

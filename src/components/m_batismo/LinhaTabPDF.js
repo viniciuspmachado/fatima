@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import RemoveNull from "./RemoveNull";
+import RemoveNull from "../RemoveNull";
 import Casados from "./Casados";
 import TipoPartic from "./TipoPartic";
 import {Text, View, StyleSheet} from "@react-pdf/renderer";

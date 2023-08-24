@@ -1,4 +1,4 @@
-import GeraPDFdia from "../../components/GeraPDFdia";
+import GeraPDFdia from "../../../components/m_batismo/GeraPDFdia";
 function MostraPDF() {
   return (
     <div className="App">

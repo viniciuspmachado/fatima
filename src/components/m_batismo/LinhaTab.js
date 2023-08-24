@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import {Table} from "reactstrap";
-import RetornaParoquia from "./RetornaParoquia";
-import RemoveNull from "./RemoveNull";
-import Casados from "./Casados";
+import RetornaParoquia from "../m_batismo/RetornaParoquia";
+import RemoveNull from "../RemoveNull";
+import Casados from "../m_batismo/Casados";
 import TipoPartic from "./TipoPartic";
 
 function LinhaTab(props) {

@@ -30,14 +30,14 @@ const navigation = [
     icon: "bi bi-card-text",
   },
   {
-    title: "Grid",
-    href: "/grid",
-    icon: "bi bi-columns",
+    title: "Cadastro de Datas",
+    href: "/CadastroDatas",
+    icon: "bi bi-calendar-event",
   },
   {
     title: "Inscritos Batismo",
-    href: "/table",
-    icon: "bi bi-layout-split",
+    href: "/InscBatismo",
+    icon: "bi bi-card-text",
   },
   {
     title: "Ficha Batismo",

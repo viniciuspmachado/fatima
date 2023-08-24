@@ -7,8 +7,8 @@ import {
     PDFViewer,
     Image,
   } from "@react-pdf/renderer";
-  import LinhaTabPDF from "./LinhaTabPDF";
-  import logoFatima from '../assets/images/bg/logo_paroquia.jpg';
+  import LinhaTabPDF from "../m_batismo/LinhaTabPDF";
+  import logoFatima from '../../assets/images/bg/logo_paroquia.jpg';
 
   // Create styles
   const styles = StyleSheet.create({
@@ -17,7 +17,7 @@ import {
       color: "black",
     },
     section: {
-      margin: 10,
+      margin: 5,
       padding: 10,
     },
     viewer: {
@@ -34,7 +34,6 @@ import {
         border: '1px solid black',
         borderRadius: '1px',
         
-        
     },
 
     table: {
@@ -45,7 +44,7 @@ import {
     },
       tableh: {
         width: '100%',
-        margin: 10,
+        margin: 4,
         padding: 10,
         fontSize:8,
       },
@@ -148,10 +147,10 @@ import {
             {/* ======== Tabela Participantes ======== */}
             <View style={styles.tableh}>
                 <View style={[styles.row, styles.bold, styles.headerT]}>
-                    <Text style={styles.row1}>Nome Dele</Text>
-                    <Text style={styles.row2}>Nome Dela</Text>
-                    <Text style={styles.row3}>Casados?</Text>
-                    <Text style={styles.row4}>Participação</Text>
+                    <Text style={styles.row1}>NOME DELE</Text>
+                    <Text style={styles.row2}>NOME DELA</Text>
+                    <Text style={styles.row3}>CASADOS?</Text>
+                    <Text style={styles.row4}>TIPO</Text>
                 </View>
                 
                 <LinhaTabPDF datasel={data} />
