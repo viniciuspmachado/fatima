@@ -1,4 +1,4 @@
-import LinhaTab from "../../../components/m_batismo/LinhaTab";
+import DatasBat from "../../../components/m_batismo/DatasBat";
 import { Row, Col, Card, CardTitle, CardBody, FormGroup, Input, Button } from "reactstrap";
 import OptDatasBat from "../../../components/m_batismo/OptDatasBat";
 import React from 'react';
@@ -18,21 +18,15 @@ class Tables extends React.Component {
     let data = urlParams.get('data')
     if (data != null) {
       data = data.replaceAll("-","/");
+      alert('Vai inserir a data '+data);
     } else {
       data = '-';  
     }
-    //alert('Gerando PDF');
-    window.location.replace ('http://localhost:3000/#/mostrapdf?data='+data);
-    //window.open('http://localhost:3000/#/mostrapdf', '_blank').focus();
+    
+    //window.location.replace ('http://localhost:3000/#/mostrapdf?data='+data);
   }
 
-  onDataPChange = (event) => {
-    this.setState({datap: event.target.value});
-    
-    const dataselz = event.target.value.replaceAll("/","-");
-    window.location.replace ("http://localhost:3000/#/InscBatismo?data="+dataselz);
-    window.location.reload();
-  };
+ 
   
   
   
@@ -55,7 +49,7 @@ class Tables extends React.Component {
                     Insira a data para ser cadastrada:<br/><br/>
                     <Row>
                         <Col sm={4}>
-                            <Input id="dataSelect" name="datapart" type="select" onChange={this.onDataPChange}>
+                            <Input id="dataSelect" name="datapart" type="text" >
                             <option value={data}>{data}</option>
                               <OptDatasBat />
                             </Input>
@@ -75,7 +69,7 @@ class Tables extends React.Component {
             </CardTitle>
             <CardBody className="">
                   
-                  <LinhaTab datasel={data} />
+                  <DatasBat />
               
             </CardBody>
           </Card>
