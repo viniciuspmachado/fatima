@@ -27,14 +27,10 @@ function DatasBat() {
     
     const apaga = (dataid) => {
         alert('Data excluída!')
-        fetch('http://localhost:3001/deleta_dt/'+dataid)
+        fetch(process.env.REACT_APP_SERVER_TZ+'/deleta_dt/'+dataid)
         .then((response) => response.json())
-        window.location.replace ('http://localhost:3000/#/CadastroDatas');
+        window.location.replace (process.env.REACT_APP_SERVER_APP+'/#/CadastroDatas');
         window.location.reload();
-        /* this.setState({datap: event.target.value});
-        const dataselz = event.target.value.replaceAll("/","-");
-        window.location.replace ("http://localhost:3000/#/InscBatismo?data="+dataselz);
-        window.location.reload(); */
       };
 
     return (
