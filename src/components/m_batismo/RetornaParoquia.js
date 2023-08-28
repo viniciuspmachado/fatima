@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 function RetornaParoquia(props) {
     
     const [data, setData] = useState([]);
-    const ender = 'http://localhost:3001/paroquia/'+ props.id
+    const ender = process.env.REACT_APP_SERVER_TZ+'/paroquia/'+ props.id
     //console.log('Endereço=>>', ender);
     const fetchData = () => {
         fetch(ender)

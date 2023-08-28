@@ -10,8 +10,8 @@ function LinhaTab(props) {
     const dataselz = props.datasel.replaceAll("/","-");
     const [data, setData] = useState([]);
     const fetchData = () => {
-        console.log('http://localhost:3001/participantes/', dataselz);
-        fetch('http://localhost:3001/participantes/'+ dataselz)
+        const link = process.env.REACT_APP_SERVER_TZ;
+        fetch(link +'/participantes/'+ dataselz)
         .then((response) => response.json())
         .then((actualData) => {
             //console.log(actualData);

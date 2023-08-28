@@ -5,7 +5,7 @@ function OptParoquias() {
     const [data, setData] = useState([]);
 
     const fetchData = () => {
-        fetch('http://localhost:3001/paroquias')
+        fetch(process.env.REACT_APP_SERVER_TZ+'/paroquias')
         .then((response) => response.json())
         .then((actualData) => {
             //console.log(actualData);

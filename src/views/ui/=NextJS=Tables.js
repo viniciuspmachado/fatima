@@ -9,7 +9,7 @@ import {React, useEffect, useState} from "react";
       async function getPageData(){
         
         //const apiUrlEndPoint = handler;
-        const apiUrlEndPoint = 'http://localhost:3000/database';
+        const apiUrlEndPoint = process.env.REACT_APP_SERVER_APP+'/database';
         const response = await fetch(apiUrlEndPoint, {
           headers : { 
             'Content-Type': 'application/json',

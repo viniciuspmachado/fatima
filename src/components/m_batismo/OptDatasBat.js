@@ -5,7 +5,7 @@ function OptDatasBat() {
     const [data, setData] = useState([]);
 
     const fetchData = () => {
-        fetch('http://localhost:3001/datasbat')
+        fetch(process.env.REACT_APP_SERVER_TZ+'/datasbat')
         .then((response) => response.json())
         .then((actualData) => {
             //console.log(actualData);

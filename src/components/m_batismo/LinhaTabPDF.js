@@ -6,6 +6,8 @@ import {Text, View, StyleSheet} from "@react-pdf/renderer";
 
 function LinhaTabPDF(props) {
     
+    //dotenv.config()
+    //alert(process.env.REACT_APP_SERVER_TZ);
     const styles = StyleSheet.create({
         
           row: {
@@ -36,8 +38,8 @@ function LinhaTabPDF(props) {
     const dataselz = props.datasel.replaceAll("/","-");
     const [data, setData] = useState([]);
     const fetchData = () => {
-        console.log('http://localhost:3001/participantes/', dataselz);
-        fetch('http://localhost:3001/participantes/'+ dataselz)
+        console.log(process.env.REACT_APP_SERVER_TZ+'/participantes/', dataselz);
+        fetch(process.env.REACT_APP_SERVER_TZ+'/participantes/'+ dataselz)
         .then((response) => response.json())
         .then((actualData) => {
             //console.log(actualData);

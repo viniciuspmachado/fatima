@@ -55,6 +55,23 @@ CREATE TABLE paroquias (
     nome tinytext
 );
 ```
+### Criar tabela de login
+```
+CREATE TABLE `fatima`.`login` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `login` VARCHAR(45) NOT NULL,
+  `senha` TEXT(1000) NOT NULL,
+  `perm` INT NOT NULL,
+  PRIMARY KEY (`id`));
+```
+### Criar tabela de usuários
+```
+CREATE TABLE `fatima`.`users` (
+  `id` INT NOT NULL,
+  `nome` TEXT(500) NULL,
+  `endereco` TEXT(500) NULL,
+  `pastoral` INT NOT NULL);
+```
 
 ### Ajeitar Usuário
 ```

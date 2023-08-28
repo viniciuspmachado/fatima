@@ -22,15 +22,15 @@ class Tables extends React.Component {
       data = '-';  
     }
     //alert('Gerando PDF');
-    window.location.replace ('http://localhost:3000/#/mostrapdf?data='+data);
-    //window.open('http://localhost:3000/#/mostrapdf', '_blank').focus();
+    window.location.replace (process.env.REACT_APP_SERVER_APP+'/#/mostrapdf?data='+data);
+    //window.open(process.env.REACT_APP_SERVER_APP+'/#/mostrapdf', '_blank').focus();
   }
 
   onDataPChange = (event) => {
     this.setState({datap: event.target.value});
     
     const dataselz = event.target.value.replaceAll("/","-");
-    window.location.replace ("http://localhost:3000/#/InscBatismo?data="+dataselz);
+    window.location.replace (process.env.REACT_APP_SERVER_APP+"/#/InscBatismo?data="+dataselz);
     window.location.reload();
   };
   

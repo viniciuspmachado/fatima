@@ -23,7 +23,7 @@ class Tables extends React.Component {
     if (data != null) {
       data = data.replaceAll("-","/");
       const link = process.env.REACT_APP_SERVER_TZ+'/register_dt';
-      alert(link);
+      //alert(link);
       await fetch(link, {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
