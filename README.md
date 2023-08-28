@@ -61,6 +61,7 @@ CREATE TABLE `fatima`.`login` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `login` VARCHAR(45) NOT NULL,
   `senha` TEXT(1000) NOT NULL,
+  `aprov` BOOLEAN NULL DEFAULT 0
   `perm` INT NOT NULL,
   PRIMARY KEY (`id`));
 ```
@@ -69,7 +70,7 @@ CREATE TABLE `fatima`.`login` (
 CREATE TABLE `fatima`.`users` (
   `id` INT NOT NULL,
   `nome` TEXT(500) NULL,
-  `endereco` TEXT(500) NULL,
+  `email` TEXT(500) NULL,
   `pastoral` INT NOT NULL);
 ```
 

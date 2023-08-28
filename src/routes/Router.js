@@ -18,6 +18,7 @@ const FichaBatismo = lazy(() => import("../views/ui/m_batismo/Ficha_Batismo.js")
 const CadastroDatas = lazy(() => import("../views/ui/m_batismo/CadastroDatas.js"));
 const Breadcrumbs = lazy(() => import("../views/ui/Breadcrumbs"));
 const MostraPDF = lazy(() => import("../views/ui/m_batismo/MostraPDF.js"));
+const Login = lazy(() => import("../views/ui/login.js"));
 
 /*****Routes******/
 
@@ -39,6 +40,7 @@ const ThemeRoutes = [
       { path: "/CadastroDatas", exact: true, element: <CadastroDatas /> },
       { path: "/breadcrumbs", exact: true, element: <Breadcrumbs /> },
       { path: "/mostrapdf", exact: true, element: <MostraPDF /> },
+      { path: "/login", exact: true, element: <Login /> },
     ],
   },
 ];
