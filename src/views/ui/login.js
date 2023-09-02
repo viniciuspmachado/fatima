@@ -52,19 +52,18 @@ class Login extends React.Component {
               pass: this.state.pass,
           })
       })
-          .then(alert("Bem vindo!"))
-          .then(response => {response.json()
-            //console.log(response.users[0])
-            window.location.replace(process.env.REACT_APP_SERVER_TZ);
-            window.location.reload();
+          //.then(alert("Bem vindo!"))
+          .then(response => response.json())
+          .then (usuario => {
+            //alert(usuario.login);
+            if (usuario.login){
+              alert('Bem vindo '+usuario.login);
+            } else 
+            alert(usuario);
+            //window.location.replace(process.env.REACT_APP_SERVER_APP);
+            //window.location.reload();
           })
-          .then(users => {
-              if (users) {
-                console.log('2==>',users);
-                 //this.props.loadUser(user);
-                 //this.props.onRouteChange('/'); 
-              }
-          })
+          
     }
   }
   
