@@ -9,6 +9,7 @@ import React from 'react';
 from 'mdb-react-ui-kit'; */
 import '../../../src/assets/scss/login.css';
 import { Row, Col, Card, Label, Form, FormGroup, Input, Button } from "reactstrap";
+import { Link } from "react-router-dom";
 
 class Login extends React.Component {
 
@@ -17,6 +18,7 @@ class Login extends React.Component {
     this.state = {
         user: '',
         pass: '',
+        rota: '/login'
     }
   };
   
@@ -57,11 +59,17 @@ class Login extends React.Component {
           .then (usuario => {
             //alert(usuario.login);
             if (usuario.login){
+              this.setState({rota: '/'});
               alert('Bem vindo '+usuario.login);
-            } else 
-            alert(usuario);
-            //window.location.replace(process.env.REACT_APP_SERVER_APP);
-            //window.location.reload();
+              
+              //alert('Entrou e vai para: '+this.state.rota);
+              
+            } else {
+              this.setState({rota: '/login'})
+              alert(usuario);
+              
+              //alert('Não Entrou e vai para: '+this.state.rota);
+            }
           })
           
     }
@@ -93,14 +101,8 @@ class Login extends React.Component {
                 onChange={this.onPassChange}
               />
             </FormGroup>
-            <input
-          
-            onClick={this.onSubmitSignIn}
-            className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
-            type="submit"
-            value="Entrar"
-          
-          />
+            
+          <Link to={this.state.rota} className="btn btn-primary" onClick={this.onSubmitSignIn}>Entrar</Link>
         </Form>
       </div>
     );
