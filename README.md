@@ -57,15 +57,16 @@ CREATE TABLE paroquias (
 ```
 ### Criar tabela de login
 ```
-CREATE TABLE `fatima`.`login` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `login` VARCHAR(45) NOT NULL,
-  `senha` TEXT(1000) NOT NULL,
-  `aprov` BOOLEAN NULL DEFAULT 0,
-  `perm` INT NOT NULL,
-  `nome` TEXT(200) NOT NULL,
-  `email` VARCHAR(45) NOT NULL;
-  PRIMARY KEY (`id`));
+CREATE TABLE fatima.login (
+  id INT NOT NULL AUTO_INCREMENT,
+  login VARCHAR(45) NOT NULL,
+  senha TEXT(1000) NOT NULL,
+  aprov BOOLEAN NULL DEFAULT 0,
+  perm INT NOT NULL,
+  nome TEXT(200) NOT NULL,
+  email VARCHAR(45) NOT NULL,
+  PRIMARY KEY (id)
+  );
 ```
 ### Criar tabela de permissões por pastorais
 ```

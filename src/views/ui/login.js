@@ -9,7 +9,7 @@ import React from 'react';
 from 'mdb-react-ui-kit'; */
 import '../../../src/assets/scss/login.css';
 import { Row, Col, Card, Label, Form, FormGroup, Input, Button } from "reactstrap";
-import { Link, withRouter } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 
 class Login extends React.Component {
@@ -109,7 +109,7 @@ class Login extends React.Component {
             
           <Link to={this.state.rota} className="btn btn-primary" onClick={this.onSubmitSignIn}>Entrar</Link>
           &nbsp;&nbsp;&nbsp;
-          <Link to={this.state.rota} className="btn btn-primary">Solicitar Cadastro</Link>
+          <Link to='/caduser' className="btn btn-primary">Solicitar Cadastro</Link>
           &nbsp;&nbsp;&nbsp;
           <Link to={this.state.rota}>Solicitar Nova Senha</Link>
         </Form>
