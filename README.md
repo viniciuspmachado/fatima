@@ -63,15 +63,16 @@ CREATE TABLE `fatima`.`login` (
   `senha` TEXT(1000) NOT NULL,
   `aprov` BOOLEAN NULL DEFAULT 0,
   `perm` INT NOT NULL,
+  `nome` TEXT(200) NOT NULL,
+  `email` VARCHAR(45) NOT NULL;
   PRIMARY KEY (`id`));
 ```
-### Criar tabela de usuários
+### Criar tabela de permissões por pastorais
 ```
-CREATE TABLE `fatima`.`users` (
-  `id` INT NOT NULL,
-  `nome` TEXT(500) NULL,
-  `email` TEXT(500) NULL,
-  `pastoral` INT NOT NULL);
+CREATE TABLE fatima.perm (
+    id int,
+    pastoral varchar(25)
+);
 ```
 
 ### Ajeitar Usuário

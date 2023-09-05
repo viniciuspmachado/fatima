@@ -9,7 +9,8 @@ import React from 'react';
 from 'mdb-react-ui-kit'; */
 import '../../../src/assets/scss/login.css';
 import { Row, Col, Card, Label, Form, FormGroup, Input, Button } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+
 
 class Login extends React.Component {
 
@@ -22,6 +23,11 @@ class Login extends React.Component {
     }
   };
   
+  mudarota = () => {
+    this.props.updateItem(this.state)
+    alert('antrou')
+  }
+
   onUserChange = (event) => {
     this.setState({user: event.target.value})
   };
@@ -59,14 +65,13 @@ class Login extends React.Component {
           .then (usuario => {
             //alert(usuario.login);
             if (usuario.login){
-              this.setState({rota: '/'});
-              alert('Bem vindo '+usuario.login);
-              
-              //alert('Entrou e vai para: '+this.state.rota);
-              
+              //var word_one = strg.split(' ')[0];// separar str por espaços
+              //console.log(word_one);
+              alert('Bem vindo '+usuario.nome.split(' ')[0]);
+              window.open("/","_self")
             } else {
-              this.setState({rota: '/login'})
               alert(usuario);
+              //window.open("/login","_self")
               
               //alert('Não Entrou e vai para: '+this.state.rota);
             }
@@ -103,6 +108,10 @@ class Login extends React.Component {
             </FormGroup>
             
           <Link to={this.state.rota} className="btn btn-primary" onClick={this.onSubmitSignIn}>Entrar</Link>
+          &nbsp;&nbsp;&nbsp;
+          <Link to={this.state.rota} className="btn btn-primary">Solicitar Cadastro</Link>
+          &nbsp;&nbsp;&nbsp;
+          <Link to={this.state.rota}>Solicitar Nova Senha</Link>
         </Form>
       </div>
     );

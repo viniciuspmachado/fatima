@@ -25,9 +25,9 @@ const navigation = [
     icon: "bi bi-hdd-stack",
   },
   {
-    title: "Cards",
-    href: "/cards",
-    icon: "bi bi-card-text",
+    title: "Login",
+    href: "/login",
+    icon: "bi bi-person-workspace",
   },
   {
     title: "Cadastro de Datas",
