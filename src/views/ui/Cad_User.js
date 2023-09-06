@@ -59,8 +59,12 @@ onPastoralChange = (event) => {
 };
 
 
+
 onSubmitSignIn = async () => {
   
+  //alert(this.state.email.trim())
+  //alert(/\S+@\S+\.\S+/.test(this.state.email.trim()));
+
   let error = 0;
 
   if(this.state.login.trim() === ''){
@@ -73,8 +77,8 @@ onSubmitSignIn = async () => {
     error = 1;
   } 
 
-  if(this.state.email.trim() === ''){
-    alert("Por favor, preencha o e-mail.");
+  if(!(/\S+@\S+\.\S+/.test(this.state.email.trim()))){
+    alert("Por favor, digite e-mail válido.");
     error = 1;
   } 
   
@@ -93,6 +97,8 @@ onSubmitSignIn = async () => {
     error = 1;
   } 
 
+  
+
   //alert(error);
 
   if (error === 0){
@@ -109,7 +115,7 @@ onSubmitSignIn = async () => {
             
         })
     })
-        .then(alert("Agendamento realizado com Sucesso!"))
+        .then(alert("Cadastro realizado com sucesso!\nAguarde Autorização."))
         .then(response => {response.json()
           //console.log(response.users[0])
           //window.location.replace('/');
@@ -147,7 +153,7 @@ onSubmitSignIn = async () => {
               <Form>
               
                 
-                <FormGroup className='w-50'>
+                <FormGroup className='w-50' name='f1'>
                   <Label for="login">Login:</Label>
                     <Input
                       width='w-25'
@@ -179,7 +185,6 @@ onSubmitSignIn = async () => {
                     placeholder=""
                     type="text"
                     onChange={this.onNomeEmailChange}
-                    onblur={this.validacaoEmail}
                   />
                 </FormGroup>
 
