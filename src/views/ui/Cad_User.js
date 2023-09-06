@@ -12,114 +12,107 @@ import {
   /*FormText,*/
 } from "reactstrap";
 import React from 'react';
-import OptParoquias from "../../components/m_batismo/OptParoquias";
-import { Link} from "react-router-dom";
+import OptPastorais from "../../components/OptPastorais";
+import {Link} from "react-router-dom";
 
 class Cad_User extends React.Component {
   
   constructor(props){
     super(props);
     this.state = {
-        tipoP: '',
-        nomedele: '',
-        nomedela: '',
-        casados: '0',
-        datap: '',
-        endereco: '',
-        cidade: '',
-        telefone: '',
-        sacramentos: '',
-        paroquia: '1',
-        ecc: '0',
-        batismo: '0',
-        euca: '0',
-        crisma: '0',
-        matrimonio: '0',
-        ordem: '0',
+        login: '',
+        email: '',
+        nome: '',
+        senha: '',
+        senhar: '',
+        pastoral:'1',
+        
     }
 };
 
 
 
 onLoginChange = (event) => {
-  this.setState({nomedele: event.target.value})
+  this.setState({login: event.target.value})
 };
 
-
-
 onNomeEmailChange = (event) => {
-  this.setState({nomedela: event.target.value})
+  this.setState({email: event.target.value})
 };
 
 
 onNomeChange = (event) => {
-  this.setState({nomedele: event.target.value})
+  this.setState({nome: event.target.value})
 };
 
 
 onSenhaChange = (event) => {
-  this.setState({endereco: event.target.value})
+  this.setState({senha: event.target.value})
 };
 
-
-
-
+onSenharChange = (event) => {
+  this.setState({senhar: event.target.value})
+};
 
 onPastoralChange = (event) => {
-  this.setState({paroquia: event.target.value})
+  this.setState({pastoral: event.target.value})
 };
 
-onECCChange = (event) => {
-    this.setState({ecc: event.target.value})
-};
 
 onSubmitSignIn = async () => {
   
   let error = 0;
 
-  if(this.state.tipoP.trim() === ''){
-    alert("Por favor, selecione o tipo de participação (pais ou padrinhos)!");
+  if(this.state.login.trim() === ''){
+    alert("Por favor, digite seu login de preferência.");
     error = 1;
   } 
   
-  if(this.state.nomedele.trim() === '' && this.state.nomedela.trim() === ''){
-    alert("Por favor, preencha pelo menos nome de um participante!");
-    error = 1;
-  } 
-  
-  if(this.state.datap.trim() === ''){
-    alert("Por favor , informe a data para a preparação para o Batismo!");
+  if(this.state.nome.trim() === ''){
+    alert("Por favor, preencha pelo o nome do usuário.");
     error = 1;
   } 
 
+  if(this.state.email.trim() === ''){
+    alert("Por favor, preencha o e-mail.");
+    error = 1;
+  } 
+  
+  if(this.state.senha.trim() === ''){
+    alert("Por favor, digite sua senha.");
+    error = 1;
+  } 
+
+  if(this.state.senhar.trim() === ''){
+    alert("Por favor, repita a senha.");
+    error = 1;
+  } 
+
+  if(this.state.senha.trim() != this.state.senhar.trim()){
+    alert("As senhas não coincidem!");
+    error = 1;
+  } 
+
+  //alert(error);
+
   if (error === 0){
     
-    await fetch(process.env.REACT_APP_SERVER_TZ+'/register', {
+    await fetch(process.env.REACT_APP_SERVER_TZ+'/register_user', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-            tipo: this.state.tipoP,
-            nomedele: this.state.nomedele,
-            nomedela: this.state.nomedela,
-            casados: this.state.casados,
-            datap: this.state.datap,
-            endereco: this.state.endereco,
-            cidade: this.state.cidade,
-            telefone: this.state.telefone,
-            sacramentos: this.state.sacramentos,
-            paroquia: this.state.paroquia,
-            ecc: this.state.ecc,
-            batismo: this.state.batismo,
-            euca: this.state.euca,
-            crisma: this.state.crisma,
-            matrimonio: this.state.matrimonio,
-            ordem: this.state.ordem
+            login: this.state.login,
+            nome: this.state.nome,
+            senha: this.state.senha,
+            email: this.state.email,
+            pastoral: this.state.pastoral,
+            
         })
     })
         .then(alert("Agendamento realizado com Sucesso!"))
         .then(response => {response.json()
           //console.log(response.users[0])
-          window.location.replace('/');
+          //window.location.replace('/');
         })
         .then(users => {
             if (users) {
@@ -128,6 +121,9 @@ onSubmitSignIn = async () => {
                //this.props.onRouteChange('/'); 
             }
         })
+  } else {
+    //alert('Não cadastrou!');
+    window.open("/caduser","_self");
   }
 }
 
@@ -183,6 +179,7 @@ onSubmitSignIn = async () => {
                     placeholder=""
                     type="text"
                     onChange={this.onNomeEmailChange}
+                    onblur={this.validacaoEmail}
                   />
                 </FormGroup>
 
@@ -207,7 +204,7 @@ onSubmitSignIn = async () => {
                     name="senhar"
                     placeholder=""
                     type="password"
-                    onChange={this.onSenhaChange}
+                    onChange={this.onSenharChange}
                   />
                 </FormGroup>
 
@@ -215,8 +212,8 @@ onSubmitSignIn = async () => {
                 
                 <FormGroup className='w-50'>
                 <Label for="exampleSelectMulti">Qual pastoral está vinculado?</Label>
-                  <Input id="dataSelect" name="paroquia" type="select" onChange={this.onPastoralChange}>
-                    <OptParoquias/>
+                  <Input id="dataSelect" name="pastoral" type="select" onChange={this.onPastoralChange}>
+                    <OptPastorais/>
                   </Input>
                 </FormGroup>
                     
@@ -224,8 +221,13 @@ onSubmitSignIn = async () => {
                 
 
                 <br/>
-
-                <Link to='/' className="btn btn-primary" onClick={this.onSubmitSignIn}>Solicitar Cadastro</Link>
+                <input
+                    onClick={this.onSubmitSignIn}
+                    className="btn btn-primary"
+                    type="submit"
+                    value="Solicitar Cadastro"
+                  />
+                {/* <Link to='' className="btn btn-primary" onClick={this.onSubmitSignIn}>Solicitar Cadastro</Link> */}
               </Form>
             </CardBody>
           </Card>
