@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 /* import {
   MDBContainer,
   MDBInput,
@@ -10,7 +10,9 @@ from 'mdb-react-ui-kit'; */
 import '../../../src/assets/scss/login.css';
 import { Row, Col, Card, Label, Form, FormGroup, Input, Button } from "reactstrap";
 import { Link} from "react-router-dom";
+import Global from '../../contexts/Global';
 
+//const [nome, setNome] = useContext(Global);
 
 class Login extends React.Component {
 
@@ -23,6 +25,8 @@ class Login extends React.Component {
     }
   };
   
+  
+
   mudarota = () => {
     this.props.updateItem(this.state)
     alert('antrou')
@@ -67,7 +71,9 @@ class Login extends React.Component {
             if (usuario.login){
               //var word_one = strg.split(' ')[0];// separar str por espaços
               //console.log(word_one);
-              alert('Bem vindo '+usuario.nome.split(' ')[0]);
+              localStorage.setItem('nomez',usuario.nome.split(' ')[0])
+              //setNome(usuario.nome.split(' ')[0])
+              alert('Bem vindo '+localStorage.getItem('nomez'));
               window.open("/","_self")
             } else {
               alert(usuario);
@@ -81,7 +87,7 @@ class Login extends React.Component {
   }
   
   render() {
-
+    
   return (
       <div className="App">
           <h2>Iniciar Sessão</h2>
