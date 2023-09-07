@@ -226,13 +226,13 @@ onSubmitSignIn = async () => {
                 
 
                 <br/>
-                <input
+                {/* <input
                     onClick={this.onSubmitSignIn}
                     className="btn btn-primary"
                     type="submit"
                     value="Solicitar Cadastro"
-                  />
-                {/* <Link to='' className="btn btn-primary" onClick={this.onSubmitSignIn}>Solicitar Cadastro</Link> */}
+                  /> */}
+                <Link to='/' className="btn btn-primary" onClick={this.onSubmitSignIn}>Solicitar Cadastro</Link>
               </Form>
             </CardBody>
           </Card>

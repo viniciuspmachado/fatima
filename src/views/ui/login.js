@@ -69,11 +69,9 @@ class Login extends React.Component {
           .then (usuario => {
             //alert(usuario.login);
             if (usuario.login){
-              //var word_one = strg.split(' ')[0];// separar str por espaços
-              //console.log(word_one);
-              localStorage.setItem('nomez',usuario.nome.split(' ')[0])
-              //setNome(usuario.nome.split(' ')[0])
-              alert('Bem vindo '+localStorage.getItem('nomez'));
+              sessionStorage.setItem('nomez',usuario.nome.split(' ')[0])
+              sessionStorage.setItem('permz',usuario.perm)
+              alert('Bem vindo '+sessionStorage.getItem('nomez'));
               window.open("/","_self")
             } else {
               alert(usuario);
