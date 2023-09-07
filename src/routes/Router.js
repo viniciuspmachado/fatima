@@ -13,6 +13,7 @@ const Badges = lazy(() => import("../views/ui/Badges"));
 const Buttons = lazy(() => import("../views/ui/Buttons"));
 const Cards = lazy(() => import("../views/ui/Cards"));
 const Grid = lazy(() => import("../views/ui/Grid"));
+const GestUsers = lazy(() => import("../views/ui/GestUsers"));
 const InscBatismo = lazy(() => import("../views/ui/m_batismo/InscBatismo.js"));
 const FichaBatismo = lazy(() => import("../views/ui/m_batismo/Ficha_Batismo.js"));
 const CadastroDatas = lazy(() => import("../views/ui/m_batismo/CadastroDatas.js"));
@@ -36,6 +37,7 @@ const ThemeRoutes = [
       { path: "/buttons", exact: true, element: <Buttons /> },
       { path: "/cards", exact: true, element: <Cards /> },
       { path: "/grid", exact: true, element: <Grid /> },
+      { path: "/gestUsers", exact: true, element: <GestUsers /> },
       { path: "/InscBatismo/:data?", exact: true, element: <InscBatismo /> },
       { path: "/FichaBatismo", exact: true, element: <FichaBatismo /> },
       { path: "/CadastroDatas", exact: true, element: <CadastroDatas /> },

@@ -25,7 +25,7 @@ function Evangelho(props) {
     return (
         
         //<span>Evangelho do Dia: {data.evangelho.referencia}</span>
-        <span>Evangelho do Dia: {data.liturgia}</span>    
+        <span>{data.liturgia}</span>    
     );
 }
 
