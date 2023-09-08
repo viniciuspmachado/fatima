@@ -1,4 +1,4 @@
-import DatasBat from "../../components/m_batismo/DatasBat";
+import UserSys from "../../components/UserSys";
 import { Row, Col, Card, CardTitle, CardBody, FormGroup, Input, Button } from "reactstrap";
 import React from 'react';
 
@@ -53,7 +53,7 @@ class Tables extends React.Component {
             </CardTitle>
             <CardBody className="">
                   
-                  <DatasBat />
+                  <UserSys />
               
             </CardBody>
           </Card>

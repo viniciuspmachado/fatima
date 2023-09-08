@@ -115,10 +115,20 @@ const Sidebar = () => {
   };
   let location = useLocation();
 
-  let barra = '';
+  let barra = <div className="bg-dark text-white p-2 opacity-75">Bem-vindo, {sessionStorage.getItem('nomez')}!</div>;
+  let logout = <Button
+          color="danger"
+          tag="a"
+          target="_blank"
+          className="mt-3"
+          onClick={() => onSubmitSignOut()}
+        >
+          <i class="bi bi-door-open-fill"></i> Sair do Sistema
+        </Button>
 
-  if (sessionStorage.getItem('nomez' != '')){
-    barra = <div className="bg-dark text-white p-2 opacity-75">Bem-vindo, {sessionStorage.getItem('nomez')}!</div>;
+  if ((sessionStorage.getItem('nomez') === '') || (sessionStorage.getItem('nomez') === null) ){
+    barra = '';
+    logout = '';
   }
 
   const onSubmitSignOut = () => {
@@ -149,7 +159,7 @@ const Sidebar = () => {
           </center>
         </div>
         
-        {sessionStorage.getItem('nomez') != '' && <div className="bg-dark text-white p-2 opacity-75">Bem-vindo, {sessionStorage.getItem('nomez')}!</div>     }
+        { barra     }
         
       </div>
       <div className="p-3 mt-2">
@@ -169,17 +179,7 @@ const Sidebar = () => {
               </Link>
             </NavItem>
           ))}
-          {sessionStorage.getItem('nomez') != '' &&
-            <Button
-              color="danger"
-              tag="a"
-              target="_blank"
-              className="mt-3"
-              onClick={() => onSubmitSignOut()}
-            >
-              <i class="bi bi-door-open-fill"></i> Sair do Sistema
-            </Button>
-          }
+          {logout }
         </Nav>
       </div>
     </div>
