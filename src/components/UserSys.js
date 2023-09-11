@@ -16,6 +16,7 @@ function UserSys() {
             //console.log(actualData);
             setData(actualData);
             //console.log(data);
+
         })
         .catch((err) => {
             console.log(err.message);
@@ -26,6 +27,36 @@ function UserSys() {
         fetchData();
     }, []);
     
+    function r_aprov (numz) {
+        if (numz != 1){
+                return 'Não';
+            } else {
+                return 'Sim';
+            };
+    }
+
+    function r_paro (numz) {
+        numz = JSON.stringify(numz);
+        numz = numz[1]
+        switch (numz) {
+            case '0':
+                return 'Super User';
+              break;
+            case '1':
+                return "Batismo";
+                break;
+            case '2':
+                return "PASCOM";
+                break;
+            case '3':
+                return "ECC";
+                break;
+            case '4':
+                return "Dízimo";
+                break;
+          };
+    }
+
     const apaga = (dataid) => {
         alert('Data excluída!')
         fetch(process.env.REACT_APP_SERVER_TZ+'/deleta_dt/'+dataid)
@@ -56,8 +87,8 @@ function UserSys() {
                             <td><RemoveNull nome={[item.login]}/></td>
                             <td><RemoveNull nome={[item.nome]}/></td>
                             <td><RemoveNull nome={[item.email]}/></td>
-                            <td><RemoveNull nome={[item.perm]}/></td>
-                            <td><RemoveNull nome={[item.aprov]}/></td>
+                            <td>{r_paro([item.perm])}</td>
+                            <td>{r_aprov([item.aprov])}</td>
                             <td><Link to="" onClick={() => apaga(item.id)}>
                                     <i class="bi bi-person-x-fill" title='Excluir Usuário'></i>
                                 </Link>
