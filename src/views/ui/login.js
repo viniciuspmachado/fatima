@@ -53,7 +53,7 @@ class Login extends React.Component {
       alert("Por favor, digite a senha");
       error = 1;
     } 
-  
+   
     if (error === 0){
       
       await fetch(process.env.REACT_APP_SERVER_TZ+'/signin', {

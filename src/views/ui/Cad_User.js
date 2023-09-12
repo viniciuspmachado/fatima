@@ -115,7 +115,13 @@ onSubmitSignIn = async () => {
             
         })
     })
-        .then(alert("Cadastro realizado com sucesso!\nAguarde Autorização."))
+    .then(response => response.json())
+    .then (usuario => {
+      alert(usuario);
+      window.open("/","_self")
+      
+    })
+        /* .then(alert("Cadastro realizado com sucesso!\nAguarde Autorização."))
         .then(response => {response.json()
           //console.log(response.users[0])
           //window.location.replace('/');
@@ -126,7 +132,7 @@ onSubmitSignIn = async () => {
                //this.props.loadUser(user);
                //this.props.onRouteChange('/'); 
             }
-        })
+        }) */
   } else {
     //alert('Não cadastrou!');
     window.open("/caduser","_self");
@@ -221,7 +227,6 @@ onSubmitSignIn = async () => {
                     <OptPastorais/>
                   </Input>
                 </FormGroup>
-                    
 
                 
 

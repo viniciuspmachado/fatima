@@ -40,7 +40,7 @@ function UserSys() {
         numz = numz[1]
         switch (numz) {
             case '0':
-                return 'Super User';
+                return 'Administrador';
               break;
             case '1':
                 return "Batismo";
@@ -58,10 +58,18 @@ function UserSys() {
     }
 
     const apaga = (dataid) => {
-        alert('Data excluída!')
-        fetch(process.env.REACT_APP_SERVER_TZ+'/deleta_dt/'+dataid)
+        alert('Usuário Excluído!')
+        fetch(process.env.REACT_APP_SERVER_TZ+'/deleta_user/'+dataid)
         .then((response) => response.json())
-        window.location.replace (process.env.REACT_APP_SERVER_APP+'/#/CadastroDatas');
+        window.location.replace (process.env.REACT_APP_SERVER_APP+'/#/GestUsers');
+        window.location.reload();
+      };
+
+      const autoriza = (dataid) => {
+        alert('Permissão concedida ao usuário!')
+        fetch(process.env.REACT_APP_SERVER_TZ+'/autoriza_user/'+dataid)
+        .then((response) => response.json())
+        window.location.replace (process.env.REACT_APP_SERVER_APP+'/#/GestUsers');
         window.location.reload();
       };
 
@@ -93,7 +101,7 @@ function UserSys() {
                                     <i class="bi bi-person-x-fill" title='Excluir Usuário'></i>
                                 </Link>
                                 &nbsp;&nbsp;
-                                <Link to="" onClick={() => apaga(item.id)}>
+                                <Link to="" onClick={() => autoriza(item.id)}>
                                     <i class="bi bi-person-check-fill" title='Aprova Usuário'></i>
                                 </Link>
                                 
