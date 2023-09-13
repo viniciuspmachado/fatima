@@ -18,7 +18,7 @@ class Login extends React.Component {
     this.state = {
         user: '',
         pass: '',
-        rota: '/login',
+        rota: '',
         message: '',
         t_message: '',
         modal: false
@@ -35,10 +35,6 @@ class Login extends React.Component {
   }
   
 
-  mudarota = () => {
-    this.props.updateItem(this.state)
-    alert('antrou')
-  }
 
   onUserChange = (event) => {
     this.setState({user: event.target.value})
@@ -47,6 +43,10 @@ class Login extends React.Component {
   onPassChange = (event) => {
     this.setState({pass: event.target.value})
   };
+
+  paginaPrincipal (){
+    window.open(this.state.rota,"_self");
+  }
 
   onMudaMessagem (mess) {
     this.setState((state) => {
@@ -62,6 +62,13 @@ class Login extends React.Component {
     });
   };
 
+  onMudaLink (mess) {
+    this.setState((state) => {
+      // Importante: use `state` em vez de `this.state` quando estiver atualizando.
+      return {rota: mess}
+    });
+  };
+
   onSubmitSignIn = async () => {
   
     let error = 0;
@@ -70,6 +77,7 @@ class Login extends React.Component {
       //alert("Por favor, digite o nome de usuário!");
       this.onMudaTitulo("Erro!");
       this.onMudaMessagem("Por favor, digite o nome de usuário!");
+      this.onMudaLink('/login');
       error = 1;
       this.toggle();
     } 
@@ -78,6 +86,7 @@ class Login extends React.Component {
       //alert("Por favor, digite a senha");
       this.onMudaTitulo("Erro!");
       this.onMudaMessagem("Por favor, digite a senha!");
+      this.onMudaLink('/login');
       error = 1;
       this.toggle();
     } 
@@ -101,10 +110,11 @@ class Login extends React.Component {
               sessionStorage.setItem('permz',usuario.perm)
               this.onMudaTitulo("Sucesso!");
               this.onMudaMessagem('Bem vindo '+sessionStorage.getItem('nomez'));
+              this.onMudaLink('/');
               this.toggle();
               //alert('Bem vindo '+sessionStorage.getItem('nomez'));
               //await(2000); 
-              window.open("/","_self")
+              //window.open("/","_self")
             } else {
               alert(usuario);
               //window.open("/login","_self")
@@ -122,14 +132,13 @@ class Login extends React.Component {
       <div className="App">
           
           <div>
-            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-              <ModalHeader toggle={this.toggle}>{this.state.t_message}</ModalHeader>
+            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} backdrop="static">
+              <ModalHeader toggle={this.paginaPrincipal}>{this.state.t_message}</ModalHeader>
               <ModalBody>
                 {this.state.message}
               </ModalBody>
               <ModalFooter>
-                <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-                <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                <Button color="primary" onClick={this.paginaPrincipal}>OK</Button>{' '}
               </ModalFooter>
             </Modal>
           </div>
