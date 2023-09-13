@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {Table} from "reactstrap";
 import RemoveNull from "../components/RemoveNull";
 import { Link } from "react-router-dom";
+import { defaultLightTheme } from "react-admin";
 
 
 function UserSys() {
@@ -28,7 +29,7 @@ function UserSys() {
     }, []);
     
     function r_aprov (numz) {
-        if (numz != 1){
+        if (numz !== 1){
                 return 'Não';
             } else {
                 return 'Sim';
@@ -41,19 +42,16 @@ function UserSys() {
         switch (numz) {
             case '0':
                 return 'Administrador';
-              break;
             case '1':
                 return "Batismo";
-                break;
             case '2':
                 return "PASCOM";
-                break;
             case '3':
                 return "ECC";
-                break;
             case '4':
                 return "Dízimo";
-                break;
+            default:
+                return "Nada";
           };
     }
 

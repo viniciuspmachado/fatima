@@ -15,6 +15,8 @@ import React from 'react';
 import OptPastorais from "../../components/OptPastorais";
 import {Link} from "react-router-dom";
 
+//let error_end = '/';
+
 class Cad_User extends React.Component {
   
   constructor(props){
@@ -26,10 +28,10 @@ class Cad_User extends React.Component {
         senha: '',
         senhar: '',
         pastoral:'1',
+        error_end:'/',
         
     }
 };
-
 
 
 onLoginChange = (event) => {
@@ -59,7 +61,7 @@ onPastoralChange = (event) => {
 };
 
 
-
+//Rotina para verificar erros no formulário
 onSubmitSignIn = async () => {
   
   //alert(this.state.email.trim())
@@ -82,9 +84,10 @@ onSubmitSignIn = async () => {
     error = 1;
   } 
   
-  if(this.state.senha.trim() === ''){
-    alert("Por favor, digite sua senha.");
+  if(this.state.senha.trim() === '' || this.state.senha.length < 6){
+    alert("Por favor, digite sua senha com no mínimo 6 caracteres.");
     error = 1;
+    this.setState({error_end: '/caduser'});
   } 
 
   if(this.state.senhar.trim() === ''){
@@ -92,16 +95,14 @@ onSubmitSignIn = async () => {
     error = 1;
   } 
 
-  if(this.state.senha.trim() != this.state.senhar.trim()){
+  if(this.state.senha.trim() !== this.state.senhar.trim()){
     alert("As senhas não coincidem!");
     error = 1;
   } 
 
-  
-
   //alert(error);
 
-  if (error === 0){
+  if (error !== 1){
     
     await fetch(process.env.REACT_APP_SERVER_TZ+'/register_user', {
         method: 'post',
@@ -121,24 +122,12 @@ onSubmitSignIn = async () => {
       window.open("/","_self")
       
     })
-        /* .then(alert("Cadastro realizado com sucesso!\nAguarde Autorização."))
-        .then(response => {response.json()
-          //console.log(response.users[0])
-          //window.location.replace('/');
-        })
-        .then(users => {
-            if (users) {
-              console.log('2==>',users);
-               //this.props.loadUser(user);
-               //this.props.onRouteChange('/'); 
-            }
-        }) */
   } else {
     //alert('Não cadastrou!');
-    window.open("/caduser","_self");
+    window.open("#/caduser","_self");
   }
 }
-
+//Fim === Rotina para verificar erros no formulário
   render() {
     
     
@@ -198,7 +187,7 @@ onSubmitSignIn = async () => {
                 
 
                 <FormGroup className='w-50'>
-                  <Label for="senha">Senha:</Label>
+                  <Label for="senha">Senha:</Label><small>&nbsp;(No mínimo 6 caracteres)</small>
                   <Input
                     id="senha"
                     name="senha"
@@ -237,7 +226,7 @@ onSubmitSignIn = async () => {
                     type="submit"
                     value="Solicitar Cadastro"
                   /> */}
-                <Link to='/' className="btn btn-primary" onClick={this.onSubmitSignIn}>Solicitar Cadastro</Link>
+                <Link className="btn btn-primary" onClick={this.onSubmitSignIn}>Solicitar Cadastro</Link>
               </Form>
             </CardBody>
           </Card>

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 /* import {
   MDBContainer,
   MDBInput,
@@ -8,11 +8,8 @@ import React, {useContext} from 'react';
 }
 from 'mdb-react-ui-kit'; */
 import '../../../src/assets/scss/login.css';
-import { Row, Col, Card, Label, Form, FormGroup, Input, Button } from "reactstrap";
+import { Label, Button, Modal, Form, FormGroup, Input, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { Link} from "react-router-dom";
-import Global from '../../contexts/Global';
-
-//const [nome, setNome] = useContext(Global);
 
 class Login extends React.Component {
 
@@ -21,10 +18,21 @@ class Login extends React.Component {
     this.state = {
         user: '',
         pass: '',
-        rota: '/login'
+        rota: '/login',
+        message: '',
+        t_message: '',
+        modal: false
     }
+
+    this.toggle = this.toggle.bind(this);
   };
+
   
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
   
 
   mudarota = () => {
@@ -40,18 +48,38 @@ class Login extends React.Component {
     this.setState({pass: event.target.value})
   };
 
+  onMudaMessagem (mess) {
+    this.setState((state) => {
+      // Importante: use `state` em vez de `this.state` quando estiver atualizando.
+      return {message: mess}
+    });
+  };
+
+  onMudaTitulo (mess) {
+    this.setState((state) => {
+      // Importante: use `state` em vez de `this.state` quando estiver atualizando.
+      return {t_message: mess}
+    });
+  };
+
   onSubmitSignIn = async () => {
   
     let error = 0;
   
     if(this.state.user.trim() === ''){
-      alert("Por favor, digite o nome de usuário!");
+      //alert("Por favor, digite o nome de usuário!");
+      this.onMudaTitulo("Erro!");
+      this.onMudaMessagem("Por favor, digite o nome de usuário!");
       error = 1;
+      this.toggle();
     } 
     
     if(this.state.pass.trim() === ''){
-      alert("Por favor, digite a senha");
+      //alert("Por favor, digite a senha");
+      this.onMudaTitulo("Erro!");
+      this.onMudaMessagem("Por favor, digite a senha!");
       error = 1;
+      this.toggle();
     } 
    
     if (error === 0){
@@ -71,7 +99,11 @@ class Login extends React.Component {
             if (usuario.login){
               sessionStorage.setItem('nomez',usuario.nome.split(' ')[0])
               sessionStorage.setItem('permz',usuario.perm)
-              alert('Bem vindo '+sessionStorage.getItem('nomez'));
+              this.onMudaTitulo("Sucesso!");
+              this.onMudaMessagem('Bem vindo '+sessionStorage.getItem('nomez'));
+              this.toggle();
+              //alert('Bem vindo '+sessionStorage.getItem('nomez'));
+              //await(2000); 
               window.open("/","_self")
             } else {
               alert(usuario);
@@ -88,6 +120,20 @@ class Login extends React.Component {
     
   return (
       <div className="App">
+          
+          <div>
+            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+              <ModalHeader toggle={this.toggle}>{this.state.t_message}</ModalHeader>
+              <ModalBody>
+                {this.state.message}
+              </ModalBody>
+              <ModalFooter>
+                <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
+                <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+              </ModalFooter>
+            </Modal>
+          </div>
+
           <h2>Iniciar Sessão</h2>
           <Form className="form">
             <FormGroup>
@@ -111,7 +157,7 @@ class Login extends React.Component {
               />
             </FormGroup>
             
-          <Link to={this.state.rota} className="btn btn-primary" onClick={this.onSubmitSignIn}>Entrar</Link>
+          <Link to={this.state.rota} className="btn btn-primary" onClick={this.onSubmitSignIn} >Entrar</Link>
           &nbsp;&nbsp;&nbsp;
           <Link to='/caduser' className="btn btn-primary">Solicitar Cadastro</Link>
           &nbsp;&nbsp;&nbsp;
