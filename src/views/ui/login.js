@@ -45,7 +45,7 @@ class Login extends React.Component {
   };
 
   paginaPrincipal (){
-    window.open(this.state.rota,"_self");
+    window.open('/',"_self");
   }
 
   onMudaMessagem (mess) {
