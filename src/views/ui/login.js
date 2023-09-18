@@ -33,8 +33,6 @@ class Login extends React.Component {
       modal: !this.state.modal
     });
   }
-  
-
 
   onUserChange = (event) => {
     this.setState({user: event.target.value})
@@ -44,8 +42,11 @@ class Login extends React.Component {
     this.setState({pass: event.target.value})
   };
 
-  paginaPrincipal (){
-    window.open('/',"_self");
+  paginaPrincipal = () => {
+    //alert(this.state.rota);
+    window.location.replace (process.env.REACT_APP_SERVER_APP+this.state.rota);
+    window.location.reload();
+    //window.open(this.state.rota,"_self");
   }
 
   onMudaMessagem (mess) {
@@ -77,7 +78,7 @@ class Login extends React.Component {
       //alert("Por favor, digite o nome de usuário!");
       this.onMudaTitulo("Erro!");
       this.onMudaMessagem("Por favor, digite o nome de usuário!");
-      this.onMudaLink('/login');
+      this.onMudaLink('/#/login');
       error = 1;
       this.toggle();
     } 
@@ -86,7 +87,7 @@ class Login extends React.Component {
       //alert("Por favor, digite a senha");
       this.onMudaTitulo("Erro!");
       this.onMudaMessagem("Por favor, digite a senha!");
-      this.onMudaLink('/login');
+      this.onMudaLink('/#/login');
       error = 1;
       this.toggle();
     } 
@@ -110,13 +111,17 @@ class Login extends React.Component {
               sessionStorage.setItem('permz',usuario.perm)
               this.onMudaTitulo("Sucesso!");
               this.onMudaMessagem('Bem vindo '+sessionStorage.getItem('nomez'));
-              this.onMudaLink('/');
+              this.onMudaLink('/#/');
               this.toggle();
               //alert('Bem vindo '+sessionStorage.getItem('nomez'));
               //await(2000); 
               //window.open("/","_self")
             } else {
-              alert(usuario);
+              //alert(usuario);
+              this.onMudaTitulo("Erro!");
+              this.onMudaMessagem(usuario);
+              this.onMudaLink('/#/login');
+              this.toggle();
               //window.open("/login","_self")
               
               //alert('Não Entrou e vai para: '+this.state.rota);
@@ -133,7 +138,7 @@ class Login extends React.Component {
           
           <div>
             <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} backdrop="static">
-              <ModalHeader toggle={this.paginaPrincipal}>{this.state.t_message}</ModalHeader>
+              <ModalHeader toggle={this.toggle}>{this.state.t_message}</ModalHeader>
               <ModalBody>
                 {this.state.message}
               </ModalBody>
