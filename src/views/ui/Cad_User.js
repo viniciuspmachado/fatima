@@ -30,7 +30,7 @@ class Cad_User extends React.Component {
         senhar: '',
         pastoral:'1',
         error_end:'/',
-        rota: '',
+        rota: '/caduser',
         message: '',
         t_message: '',
         modal: false,
@@ -92,6 +92,13 @@ onMudaLink (mess) {
   });
 };
 
+paginaPrincipal = () => {
+  //alert(this.state.rota);
+  window.location.replace (process.env.REACT_APP_SERVER_APP+this.state.rota);
+  window.location.reload();
+  //window.open(this.state.rota,"_self");
+}
+
 //Rotina para verificar erros no formulário
 onSubmitSignIn = async () => {
   
@@ -101,34 +108,52 @@ onSubmitSignIn = async () => {
   let error = 0;
 
   if(this.state.login.trim() === ''){
-    alert("Por favor, digite seu login de preferência.");
+    //alert("Por favor, digite seu login de preferência.");
     error = 1;
+    this.onMudaTitulo("Erro!");
+    this.onMudaMessagem('Por favor, digite seu login de preferência.');
+    this.toggle();
   } 
   
   if(this.state.nome.trim() === ''){
-    alert("Por favor, preencha pelo o nome do usuário.");
+   //alert("Por favor, preencha pelo o nome do usuário.");
     error = 1;
+    this.onMudaTitulo("Erro!");
+    this.onMudaMessagem('Por favor, preencha o nome do usuário.');
+    this.toggle();
   } 
 
   if(!(/\S+@\S+\.\S+/.test(this.state.email.trim()))){
-    alert("Por favor, digite e-mail válido.");
+    //alert("Por favor, digite e-mail válido.");
     error = 1;
+    this.onMudaTitulo("Erro!");
+    this.onMudaMessagem('Por favor, digite e-mail válido.');
+    this.toggle();
   } 
   
   if(this.state.senha.trim() === '' || this.state.senha.length < 6){
-    alert("Por favor, digite sua senha com no mínimo 6 caracteres.");
+    //alert("Por favor, digite sua senha com no mínimo 6 caracteres.");
     error = 1;
-    this.setState({error_end: '/caduser'});
+    //this.setState({error_end: '/caduser'});
+    this.onMudaTitulo("Erro!");
+    this.onMudaMessagem('Por favor, digite sua senha com no mínimo 6 caracteres.');
+    this.toggle();
   } 
 
   if(this.state.senhar.trim() === ''){
-    alert("Por favor, repita a senha.");
+    //alert("Por favor, repita a senha.");
     error = 1;
+    this.onMudaTitulo("Erro!");
+    this.onMudaMessagem('Por favor, repita a senha.');
+    this.toggle();
   } 
 
   if(this.state.senha.trim() !== this.state.senhar.trim()){
-    alert("As senhas não coincidem!");
+    //alert("As senhas não coincidem!");
     error = 1;
+    this.onMudaTitulo("Erro!");
+    this.onMudaMessagem('As senhas não coincidem!');
+    this.toggle();
   } 
 
   //alert(error);
@@ -149,12 +174,12 @@ onSubmitSignIn = async () => {
     })
     .then(response => response.json())
     .then (usuario => {
-      alert(usuario);
-      //this.onMudaTitulo("Mensagem");
-      //this.onMudaMessagem(usuario);
-      //this.onMudaLink('/#/');
-      //this.toggle();
-      window.open("/","_self")
+      //alert(usuario);
+      this.onMudaTitulo("Mensagem!");
+      this.onMudaMessagem(usuario);
+      this.onMudaLink('/#/');
+      this.toggle();
+      //window.open("/","_self")
       
     })
   } else {
