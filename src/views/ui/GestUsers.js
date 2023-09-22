@@ -1,5 +1,5 @@
 import UserSys from "../../components/UserSys";
-import { Row, Col, Card, CardTitle, CardBody } from "reactstrap";
+import { Row, Col, Card, CardTitle, CardBody, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import React from 'react';
 
 class Tables extends React.Component {
@@ -43,22 +43,23 @@ class Tables extends React.Component {
 
   render() {
     return (
-      <Row>
-        <Col lg="12">
-          <Card>
-            <CardTitle tag="h6" className="border-bottom p-3 mb-0">
-            <h3>
-            <i class="bi bi-people-fill"></i>{'  '}Gestão de Usuários
-              </h3>
-            </CardTitle>
-            <CardBody className="">
+        
+          <Row>
+            <Col lg="12">
+              <Card>
+                <CardTitle tag="h6" className="border-bottom p-3 mb-0">
+                <h3>
+                <i class="bi bi-people-fill"></i>{'  '}Gestão de Usuários
+                  </h3>
+                </CardTitle>
+                <CardBody className="">
+                      
+                      <UserSys />
                   
-                  <UserSys />
-              
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
     );
   }
 }

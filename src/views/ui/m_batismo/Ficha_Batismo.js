@@ -38,7 +38,7 @@ class Ficha_Batismo extends React.Component {
         crisma: '0',
         matrimonio: '0',
         ordem: '0',
-        rota: '',
+        rota: '0',
         message: '',
         t_message: '',
         modal: false,
@@ -137,6 +137,17 @@ onMudaLink (mess) {
   });
 };
 
+paginaPrincipal = () => {
+  //alert(this.state.rota);
+  this.toggle();
+  if  (this.state.rota != 0){
+  window.location.replace (process.env.REACT_APP_SERVER_APP+'/#/');
+  window.location.reload();
+    
+  }
+  //window.open(this.state.rota,"_self");
+}
+
 onSubmitSignIn = async () => {
   
   let error = 0;
@@ -189,10 +200,14 @@ onSubmitSignIn = async () => {
             ordem: this.state.ordem
         })
     })
-        .then(alert("Agendamento realizado com Sucesso!"))
+        //.then(alert("Agendamento realizado com Sucesso!"))
         .then(response => {response.json()
           //console.log(response.users[0])
-          window.location.replace('/');
+          this.onMudaLink(1);
+          this.onMudaTitulo("Sucesso!");
+          this.onMudaMessagem('Agendamento realizado!');
+          this.toggle();
+          //window.location.replace('/');
         })
         .then(users => {
             if (users) {
@@ -215,7 +230,7 @@ onSubmitSignIn = async () => {
               {this.state.message}
             </ModalBody>
             <ModalFooter>
-              <Button color="primary" onClick={this.toggle}>OK</Button>{' '}
+              <Button color="primary" onClick={this.paginaPrincipal}>OK</Button>{' '}
             </ModalFooter>
           </Modal>
 

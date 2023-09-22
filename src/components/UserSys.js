@@ -1,22 +1,33 @@
 import { useEffect, useState } from "react";
-import {Table} from "reactstrap";
+import {Table, Modal, ModalHeader, ModalBody, ModalFooter, Button} from "reactstrap";
 import RemoveNull from "../components/RemoveNull";
 import { Link } from "react-router-dom";
-import { defaultLightTheme } from "react-admin";
 
 
 function UserSys() {
     
-    const [data, setData] = useState([]);
+    const [data, setData, test] = useState([]);
+
+    //Rotina para fechar e abrir modal
+    const [open, setOpen] = useState(false);
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    //Rotina para passar mensagem
+    const [mess, setMess] = useState('Conteúdo');
+    const handleMess = (pMess) => {
+        setMess(pMess);
+    };
 
     const fetchData = () => {
-        //alert(process.env.REACT_APP_SERVER_TZ)
         fetch(process.env.REACT_APP_SERVER_TZ+'/usersys')
         .then((response) => response.json())
         .then((actualData) => {
-            //console.log(actualData);
             setData(actualData);
-            //console.log(data);
 
         })
         .catch((err) => {
@@ -29,7 +40,9 @@ function UserSys() {
     }, []);
     
     function r_aprov (numz) {
-        if (numz !== 1){
+        numz = JSON.stringify(numz);
+        numz = numz[1];
+        if (numz !== '1'){
                 return 'Não';
             } else {
                 return 'Sim';
@@ -56,58 +69,78 @@ function UserSys() {
     }
 
     const apaga = (dataid) => {
-        alert('Usuário Excluído!')
+        handleOpen();
+        handleMess('Usuário Excluído!')
         fetch(process.env.REACT_APP_SERVER_TZ+'/deleta_user/'+dataid)
         .then((response) => response.json())
-        window.location.replace (process.env.REACT_APP_SERVER_APP+'/#/GestUsers');
-        window.location.reload();
       };
 
       const autoriza = (dataid) => {
-        alert('Permissão concedida ao usuário!')
+        handleMess('Permissão concedida ao usuário!')
+        handleOpen();
         fetch(process.env.REACT_APP_SERVER_TZ+'/autoriza_user/'+dataid)
         .then((response) => response.json())
-        window.location.replace (process.env.REACT_APP_SERVER_APP+'/#/GestUsers');
-        window.location.reload();
       };
 
-    return (
+      const atualiza = () => {
         
-        <Table bordered hover>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Login</th>
-                  <th>Nome</th>
-                  <th>Email</th>
-                  <th>Pastoral</th>
-                  <th>Aprovado?</th>
-                  <th>Ações</th>
-                  
-                </tr>
-              </thead>
-                <tbody>
-                    {data.map((item, index) => (
-                        <tr>
-                            <th scope="row">{item.id}</th>
-                            <td><RemoveNull nome={[item.login]}/></td>
-                            <td><RemoveNull nome={[item.nome]}/></td>
-                            <td><RemoveNull nome={[item.email]}/></td>
-                            <td>{r_paro([item.perm])}</td>
-                            <td>{r_aprov([item.aprov])}</td>
-                            <td><Link to="" onClick={() => apaga(item.id)}>
-                                    <i class="bi bi-person-x-fill" title='Excluir Usuário'></i>
-                                </Link>
-                                &nbsp;&nbsp;
-                                <Link to="" onClick={() => autoriza(item.id)}>
-                                    <i class="bi bi-person-check-fill" title='Aprova Usuário'></i>
-                                </Link>
-                                
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
+        window.location.replace (process.env.REACT_APP_SERVER_APP+'/#/GestUsers');
+        window.location.reload(false);
+      };
+
+
+    return (
+       
+        
+        <div>
+            <div>
+                <Modal toggle={handleClose} isOpen={open}  backdrop="static">
+                    <ModalHeader toggle={handleClose}>Alerta!</ModalHeader>
+                    <ModalBody>
+                        {mess}
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="primary" onClick={atualiza}>OK</Button>{' '}
+                    </ModalFooter>
+                </Modal>
+            </div>
+            
+            <Table bordered hover>
+                <thead>
+                    <tr>
+                    <th>#</th>
+                    <th>Login</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Pastoral</th>
+                    <th>Aprovado?</th>
+                    <th>Ações</th>
+                    
+                    </tr>
+                </thead>
+                    <tbody>
+                        {data.map((item, index) => (
+                            <tr>
+                                <th scope="row">{item.id}</th>
+                                <td><RemoveNull nome={[item.login]}/></td>
+                                <td><RemoveNull nome={[item.nome]}/></td>
+                                <td><RemoveNull nome={[item.email]}/></td>
+                                <td>{r_paro([item.perm])}</td>
+                                <td>{r_aprov([item.aprov])}</td>
+                                <td><Link to="" onClick={() => apaga(item.id)}>
+                                        <i class="bi bi-person-x-fill" title='Excluir Usuário'></i>
+                                    </Link>
+                                    &nbsp;&nbsp;
+                                    <Link to="" onClick={() => autoriza(item.id)}>
+                                        <i class="bi bi-person-check-fill" title='Aprova Usuário'></i>
+                                    </Link>
+                                    
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
             </Table>
+        </div>
 
          
     );
