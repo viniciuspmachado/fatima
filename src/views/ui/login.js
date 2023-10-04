@@ -71,7 +71,7 @@ class Login extends React.Component {
   };
 
   onSubmitSignIn = async () => {
-  
+    alert(process.env.REACT_APP_SERVER_TZ+'/signin');
     let error = 0;
   
     if(this.state.user.trim() === ''){
