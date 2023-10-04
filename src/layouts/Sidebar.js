@@ -134,7 +134,7 @@ const Sidebar = () => {
   const onSubmitSignOut = () => {
     sessionStorage.setItem('nomez','')
     sessionStorage.setItem('permz','')
-    window.open("/","_self");
+    window.open(process.env.REACT_APP_SERVER_APP,"_self");
   };
 
   return (
