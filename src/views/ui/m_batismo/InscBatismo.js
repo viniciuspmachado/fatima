@@ -28,8 +28,8 @@ class Tables extends React.Component {
 
   onDataPChange = (event) => {
     this.setState({datap: event.target.value});
-    
     const dataselz = event.target.value.replaceAll("/","-");
+    console.log(process.env.REACT_APP_SERVER_APP+"/#/InscBatismo?data="+dataselz)
     window.location.replace (process.env.REACT_APP_SERVER_APP+"/#/InscBatismo?data="+dataselz);
     window.location.reload();
   };
