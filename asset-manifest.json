@@ -3,8 +3,8 @@
     "main.css": "/fatima/static/css/main.eb88f020.chunk.css",
     "main.js": "/fatima/static/js/main.aa74e890.chunk.js",
     "main.js.map": "/fatima/static/js/main.aa74e890.chunk.js.map",
-    "runtime-main.js": "/fatima/static/js/runtime-main.711da5c1.js",
-    "runtime-main.js.map": "/fatima/static/js/runtime-main.711da5c1.js.map",
+    "runtime-main.js": "/fatima/static/js/runtime-main.88374bee.js",
+    "runtime-main.js.map": "/fatima/static/js/runtime-main.88374bee.js.map",
     "static/js/2.a925840b.chunk.js": "/fatima/static/js/2.a925840b.chunk.js",
     "static/js/2.a925840b.chunk.js.map": "/fatima/static/js/2.a925840b.chunk.js.map",
     "static/js/3.05a9c52b.chunk.js": "/fatima/static/js/3.05a9c52b.chunk.js",
@@ -15,8 +15,8 @@
     "static/js/5.071292c4.chunk.js.map": "/fatima/static/js/5.071292c4.chunk.js.map",
     "static/js/6.3d2abd87.chunk.js": "/fatima/static/js/6.3d2abd87.chunk.js",
     "static/js/6.3d2abd87.chunk.js.map": "/fatima/static/js/6.3d2abd87.chunk.js.map",
-    "static/js/7.cc83ccdf.chunk.js": "/fatima/static/js/7.cc83ccdf.chunk.js",
-    "static/js/7.cc83ccdf.chunk.js.map": "/fatima/static/js/7.cc83ccdf.chunk.js.map",
+    "static/js/7.948ede50.chunk.js": "/fatima/static/js/7.948ede50.chunk.js",
+    "static/js/7.948ede50.chunk.js.map": "/fatima/static/js/7.948ede50.chunk.js.map",
     "static/js/8.58f94ec2.chunk.js": "/fatima/static/js/8.58f94ec2.chunk.js",
     "static/js/8.58f94ec2.chunk.js.map": "/fatima/static/js/8.58f94ec2.chunk.js.map",
     "static/css/9.359c7e0d.chunk.css": "/fatima/static/css/9.359c7e0d.chunk.css",
@@ -61,7 +61,7 @@
     "static/media/user4.6ac95ef9.jpg": "/fatima/static/media/user4.6ac95ef9.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.711da5c1.js",
+    "static/js/runtime-main.88374bee.js",
     "static/js/3.05a9c52b.chunk.js",
     "static/css/main.eb88f020.chunk.css",
     "static/js/main.aa74e890.chunk.js"
