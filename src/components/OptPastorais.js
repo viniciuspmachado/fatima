@@ -4,6 +4,8 @@ function OptPastorais() {
     
     const [data, setData] = useState([]);
 
+    console.log(process.env.REACT_APP_SERVER_TZ);
+
     const fetchData = () => {
         fetch(process.env.REACT_APP_SERVER_TZ+'/pastorais')
         .then((response) => response.json())
