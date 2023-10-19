@@ -59,25 +59,25 @@ if (sessionStorage.getItem('permz')==='0') {
 
     navigation = [
       {
-        title: "Dashboard",
+        title: "Inicio",
         href: "/starter",
-        icon: "bi bi-speedometer2",
+        icon: "bi bi-house-fill",
       },
-      {
+      /* {
         title: "Alert",
         href: "/alerts",
         icon: "bi bi-bell",
-      },
+      }, */
       {
         title: "Gestão de Usuários",
         href: "/GestUsers",
         icon: "bi bi-people-fill",
       },
-      {
+      /* {
         title: "Buttons",
         href: "/buttons",
         icon: "bi bi-hdd-stack",
-      },
+      }, */
       {
         title: "Cadastro de Datas",
         href: "/CadastroDatas",
@@ -93,13 +93,13 @@ if (sessionStorage.getItem('permz')==='0') {
         href: "/FichaBatismo",
         icon: "bi bi-textarea-resize",
       },
-      {
+      /* {
         title: "Breadcrumbs",
         href: "/breadcrumbs",
         icon: "bi bi-link",
-      },
+      }, */
       {
-        title: "About",
+        title: "Sobre",
         href: "/about",
         icon: "bi bi-people",
       },
@@ -140,22 +140,25 @@ const Sidebar = () => {
   return (
     
     <div>
-      <div className="d-flex align-items-center"></div>
-      <div
-        className="profilebg align-items-center"
-        //style={{ background: `url(${probg}) no-repeat` }}
-      >
-        <div className="p-3 d-flex align-items-center" >
-          <center>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src={probg} alt="user" width="130"  />
-          
-          <Button
+      <div className="d-flex align-items-center">
+
+      <Button
             color="white"
-            className="ms-auto text-white d-lg-none"
+            
             onClick={() => showMobilemenu()}
           >
             <i className="bi bi-x"></i>
-          </Button>
+      </Button>
+
+      </div>
+      <div className="profilebg align-items-center" 
+        //style={{ background: `url(${probg}) no-repeat` }}
+      >
+        <div className="p-3 d-flex align-items-center" >
+          
+          <center>
+          
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src={probg} alt="user" width="130"  />
           </center>
         </div>
         

@@ -8,7 +8,7 @@ import React from 'react';
 }
 from 'mdb-react-ui-kit'; */
 import '../../../src/assets/scss/login.css';
-import { Label, Button, Modal, Form, FormGroup, Input, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Label, Button, Modal, Form, FormGroup, Input, ModalHeader, ModalBody, ModalFooter, Container, Card, CardBody, Row, Col } from "reactstrap";
 import { Link} from "react-router-dom";
 
 class Login extends React.Component {
@@ -110,7 +110,7 @@ class Login extends React.Component {
               sessionStorage.setItem('nomez',usuario.nome.split(' ')[0])
               sessionStorage.setItem('permz',usuario.perm)
               this.onMudaTitulo("Sucesso!");
-              this.onMudaMessagem('Bem vindo '+sessionStorage.getItem('nomez'));
+              this.onMudaMessagem('Bem vindo(a) '+sessionStorage.getItem('nomez'));
               this.onMudaLink('/#/');
               this.toggle();
               //alert('Bem vindo '+sessionStorage.getItem('nomez'));
@@ -134,50 +134,59 @@ class Login extends React.Component {
   render() {
     
   return (
-      <div className="App">
-          
-          <div>
-            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} backdrop="static">
-              <ModalHeader toggle={this.toggle}>{this.state.t_message}</ModalHeader>
-              <ModalBody>
-                {this.state.message}
-              </ModalBody>
-              <ModalFooter>
-                <Button color="primary" onClick={this.paginaPrincipal}>OK</Button>{' '}
-              </ModalFooter>
-            </Modal>
-          </div>
+      <div className="loginBox">
+         <Container fluid className="h-100">
+          <Row className="justify-content-center align-items-center h-100">
+            <Col lg="8" className="loginContainer">
+              <Card>
+                        <CardBody className="p-4 m-1">
+                            <div>
+                              <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} backdrop="static">
+                                <ModalHeader toggle={this.toggle}>{this.state.t_message}</ModalHeader>
+                                <ModalBody>
+                                  {this.state.message}
+                                </ModalBody>
+                                <ModalFooter>
+                                  <Button color="primary" onClick={this.paginaPrincipal}>OK</Button>{' '}
+                                </ModalFooter>
+                              </Modal>
+                            </div>
 
-          <h2>Iniciar Sessão</h2>
-          <Form className="form">
-            <FormGroup>
-              <Label for="exampleEmail">Usuário</Label>
-              <Input
-                type="user"
-                name="user"
-                id="user"
-                placeholder="usuário"
-                onChange={this.onUserChange}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="examplePassword">Senha</Label>
-              <Input
-                type="password"
-                name="password"
-                id="examplePassword"
-                placeholder="********"
-                onChange={this.onPassChange}
-              />
-            </FormGroup>
-            
-          <Link to={this.state.rota} className="btn btn-primary" onClick={this.onSubmitSignIn} >Entrar</Link>
-          &nbsp;&nbsp;&nbsp;
-          <Link to='/caduser' className="btn btn-primary">Solicitar Cadastro</Link>
-          &nbsp;&nbsp;&nbsp;
-          <Link to={this.state.rota}>Solicitar Nova Senha</Link>
-        </Form>
-      </div>
+                            <h2>Iniciar Sessão</h2>
+                            <Form className="form">
+                              <FormGroup>
+                                <Label for="exampleEmail">Usuário</Label>
+                                <Input
+                                  type="user"
+                                  name="user"
+                                  id="user"
+                                  placeholder="usuário"
+                                  onChange={this.onUserChange}
+                                />
+                              </FormGroup>
+                              <FormGroup>
+                                <Label for="examplePassword">Senha</Label>
+                                <Input
+                                  type="password"
+                                  name="password"
+                                  id="examplePassword"
+                                  placeholder="********"
+                                  onChange={this.onPassChange}
+                                />
+                              </FormGroup>
+                              
+                            <Link to={this.state.rota} className="btn btn-primary" onClick={this.onSubmitSignIn} >Entrar</Link>
+                            &nbsp;&nbsp;&nbsp;
+                            <Link to='/caduser' className="btn btn-primary">Solicitar Cadastro</Link>
+                            &nbsp;&nbsp;&nbsp;
+                            <Link to={this.state.rota}>Solicitar Nova Senha</Link>
+                            </Form>
+                        </CardBody>
+              </Card>
+            </Col>
+          </Row>
+        </Container> 
+    </div>
     );
   }
 }
