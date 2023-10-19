@@ -18,7 +18,7 @@ let navigation = [
     icon: "bi bi-textarea-resize",
   },
   {
-    title: "About",
+    title: "Sobre",
     href: "/about",
     icon: "bi bi-people",
   },
@@ -29,7 +29,11 @@ if (sessionStorage.getItem('permz')==='1') {
 
   navigation = [
     
-    
+    {
+      title: "Inicio",
+      href: "/starter",
+      icon: "bi bi-house-fill",
+    },
     {
       title: "Cadastro de Datas",
       href: "/CadastroDatas",
@@ -47,7 +51,7 @@ if (sessionStorage.getItem('permz')==='1') {
     },
     
     {
-      title: "About",
+      title: "Sobre",
       href: "/about",
       icon: "bi bi-people",
     },

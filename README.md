@@ -84,17 +84,17 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'F3r5a5d0
 ### Comando para o build
 
 Linux e macOS (Windows Git Bash )-
-
+```
 export NODE_OPTIONS=--openssl-legacy-provider
-
+```
 Prompt de comando do Windows-
-
+```
 set NODE_OPTIONS=--openssl-legacy-provider
-
+```
 Windows PowerShell-
-
+```
 $env:NODE_OPTIONS = "--openssl-legacy-provider"
-
+```
 
 
 
