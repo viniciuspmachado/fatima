@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import RemoveNull from "../RemoveNull";
 import Casados from "./Casados";
 import TipoPartic from "./TipoPartic";
@@ -37,23 +37,21 @@ function LinhaTabPDF(props) {
       });
     const dataselz = props.datasel.replaceAll("/","-");
     const [data, setData] = useState([]);
-    const fetchData = () => {
-        console.log(process.env.REACT_APP_SERVER_TZ+'/participantes/', dataselz);
-        fetch(process.env.REACT_APP_SERVER_TZ+'/participantes/'+ dataselz)
-        .then((response) => response.json())
-        .then((actualData) => {
-            //console.log(actualData);
-            setData(actualData);
-            //console.log(data);
-        })
-        .catch((err) => {
-            console.log(err.message);
-        });
-    };
+    const fetchData = useCallback(() => {
+      console.log(process.env.REACT_APP_SERVER_TZ+'/participantes/', dataselz);
+      fetch(process.env.REACT_APP_SERVER_TZ+'/participantes/'+ dataselz)
+      .then((response) => response.json())
+      .then((actualData) => {
+          setData(actualData);
+      })
+      .catch((err) => {
+          console.log(err.message);
+      });
+  }, [dataselz]);
 
     useEffect(() => {
         fetchData();
-    }, []);
+    }, [fetchData]);
     
     return (
         <div>
