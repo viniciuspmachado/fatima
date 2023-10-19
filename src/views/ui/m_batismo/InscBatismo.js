@@ -5,8 +5,8 @@ import OptDatasBat from "../../../components/m_batismo/OptDatasBat";
 import { useNavigate } from "react-router-dom";
 
 const Tables = () => {
-  const [variavel, setVariavel] = useState(window.location.hash);
-  const [datap, setDatap] = useState('');
+  const [variavel] = useState(window.location.hash);
+  //const [datap, setDatap] = useState('');
   const [datasel, setDatasel] = useState('');
 
   const navigate = useNavigate();
@@ -24,13 +24,13 @@ const Tables = () => {
   };
 
   const onDataPChange = (event) => {
-    setDatap(event.target.value);
+    //setDatap(event.target.value);
     const dataselz = event.target.value.replaceAll("/", "-");
     //alert (dataselz);
     //alert(process.env.REACT_APP_SERVER_APP + '/#/InscBatismo?data=' + dataselz);
     //window.location.replace(process.env.REACT_APP_SERVER_APP + '/#/InscBatismo?data=' + dataselz);
     //window.location.reload();
-    navigate('../'+'InscBatismo?data=' + dataselz);
+    navigate('../InscBatismo?data=' + dataselz);
     navigate(0);
   };
 

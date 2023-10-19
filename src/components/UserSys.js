@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function UserSys() {
     
-    const [data, setData, test] = useState([]);
+    const [data, setData] = useState([]);
 
     //Rotina para fechar e abrir modal
     const [open, setOpen] = useState(false);

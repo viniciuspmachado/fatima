@@ -140,7 +140,7 @@ onMudaLink (mess) {
 paginaPrincipal = () => {
   //alert(this.state.rota);
   this.toggle();
-  if  (this.state.rota != 0){
+  if  (this.state.rota !== 0){
   window.location.replace (process.env.REACT_APP_SERVER_APP+'/#/');
   window.location.reload();
     

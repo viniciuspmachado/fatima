@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {Table} from "reactstrap";
 import RetornaParoquia from "../m_batismo/RetornaParoquia";
 import RemoveNull from "../RemoveNull";

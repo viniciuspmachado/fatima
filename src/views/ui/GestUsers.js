@@ -1,5 +1,5 @@
 import UserSys from "../../components/UserSys";
-import { Row, Col, Card, CardTitle, CardBody, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import { Row, Col, Card, CardTitle, CardBody} from "reactstrap";
 import React from 'react';
 
 class Tables extends React.Component {
