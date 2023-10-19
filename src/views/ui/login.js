@@ -45,7 +45,7 @@ class Login extends React.Component {
   paginaPrincipal = () => {
     //alert(process.env.REACT_APP_SERVER_APP+this.state.rota);
     window.location.replace (process.env.REACT_APP_SERVER_APP+this.state.rota);
-    //window.location.reload();
+    window.location.reload();
     //window.open(this.state.rota,"_self");
   }
 

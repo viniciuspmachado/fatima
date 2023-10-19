@@ -8,10 +8,12 @@ import TipoPartic from "./TipoPartic";
 function LinhaTab(props) {
     
     const dataselz = props.datasel.replaceAll("/","-");
+    //alert("Alerta do Linha Tab==>"+dataselz);
+    //alert(process.env.REACT_APP_SERVER_TZ +'/participantes/'+ dataselz);
     const [data, setData] = useState([]);
-    const fetchData = () => {
-        const link = process.env.REACT_APP_SERVER_TZ;
-        fetch(link +'/participantes/'+ dataselz)
+    
+       // const link = process.env.REACT_APP_SERVER_TZ;
+        fetch(process.env.REACT_APP_SERVER_TZ +'/participantes/'+ dataselz)
         .then((response) => response.json())
         .then((actualData) => {
             //console.log(actualData);
@@ -21,11 +23,8 @@ function LinhaTab(props) {
         .catch((err) => {
             console.log(err.message);
         });
-    };
+   
 
-    useEffect(() => {
-        fetchData();
-    }, []);
     
     return (
         <Table bordered hover>

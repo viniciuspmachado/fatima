@@ -27,9 +27,9 @@ function DatasBat() {
     }, []);
     
     const apaga = (dataid) => {
-        alert('Data excluída!')
         fetch(process.env.REACT_APP_SERVER_TZ+'/deleta_dt/'+dataid)
         .then((response) => response.json())
+        alert('Data excluída!')
         window.location.replace (process.env.REACT_APP_SERVER_APP+'/#/CadastroDatas');
         window.location.reload();
       };
