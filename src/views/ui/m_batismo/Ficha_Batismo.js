@@ -224,18 +224,20 @@ onSubmitSignIn = async () => {
     
     return (
       <>
-          <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} backdrop="static">
-            <ModalHeader toggle={this.toggle}>{this.state.t_message}</ModalHeader>
-            <ModalBody>
-              {this.state.message}
-            </ModalBody>
-            <ModalFooter>
-              <Button color="primary" onClick={this.paginaPrincipal}>OK</Button>{' '}
-            </ModalFooter>
-          </Modal>
 
+                <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} backdrop="static">
+                  <ModalHeader toggle={this.toggle}>{this.state.t_message}</ModalHeader>
+                  <ModalBody>
+                    {this.state.message}
+                  </ModalBody>
+                  <ModalFooter>
+                    <Button color="primary" onClick={this.paginaPrincipal}>OK</Button>{' '}
+                  </ModalFooter>
+                </Modal>
           <Row>
             <Col>
+            
+
               {/* --------------------------------------------------------------------------------*/}
               {/* Card-1*/}
               {/* --------------------------------------------------------------------------------*/}
@@ -246,7 +248,7 @@ onSubmitSignIn = async () => {
                     {'  '}Ficha para Preparação ao Sacramento do Batismo
                   </h3>
                 </CardTitle>
-                <CardBody>
+                <CardBody >
                   <Form>
                   <FormGroup tag="fieldset">
                   <Label >Tipo de Participação:</Label>
@@ -397,16 +399,11 @@ onSubmitSignIn = async () => {
                       </FormGroup>
                     </FormGroup>
 
-                    <Label >Vídeo de Acolhida:</Label><br/>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/vrFbVSvKl1g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    <br/>
-
-                    {/* <input
-                        onClick={this.onSubmitSignIn}
-                        className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
-                        type="submit"
-                        value="Enviar"
-                      /> */}
+                    <Card>
+                      <Label >Vídeo de Acolhida:</Label><br/>
+                      <iframe width="100%" height="600em" src="https://www.youtube.com/embed/vrFbVSvKl1g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                      <br/>
+                    </Card>
 
                   <Link className="btn btn-primary" onClick={this.onSubmitSignIn}>Enviar</Link>
                   </Form>
@@ -414,6 +411,7 @@ onSubmitSignIn = async () => {
               </Card>
             </Col>
           </Row>
+          
       </>
     )
   };
