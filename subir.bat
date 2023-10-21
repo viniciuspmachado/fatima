@@ -1,6 +1,6 @@
 git add .
-git commit -m "Ajustando Video"
+git commit -m "%1"
 git push
-
+pause
 
 
