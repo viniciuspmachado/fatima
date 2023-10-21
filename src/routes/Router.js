@@ -24,6 +24,7 @@ const MostraPDF = lazy(() => import("../views/ui/m_batismo/MostraPDF.js"));
 const Login = lazy(() => import("../views/ui/login.js"));
 const CadUser = lazy(() => import("../views/ui/Cad_User.js"));
 const GestUsers = lazy(() => import("../views/ui/GestUsers"));
+const Error = lazy(() => import("../views/Error.js"));
 
 /*****Routes******/
 
@@ -48,6 +49,8 @@ const ThemeRoutes = [
       { path: "/mostrapdf", exact: true, element: <MostraPDF /> },
       { path: "/login", exact: true, element: <Login /> },
       { path: "/caduser", exact: true, element: <CadUser /> },
+      { path: '*', exact: true, element: <Error /> },
+
     ],
   },
 ];

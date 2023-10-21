@@ -1,6 +1,7 @@
 import UserSys from "../../components/UserSys";
 import { Row, Col, Card, CardTitle, CardBody} from "reactstrap";
 import React from 'react';
+import Error from "../Error";
 
 class Tables extends React.Component {
   
@@ -42,6 +43,7 @@ class Tables extends React.Component {
   }
 
   render() {
+    if (sessionStorage.getItem('permz')==='0') {
     return (
         
           <Row>
@@ -61,6 +63,10 @@ class Tables extends React.Component {
             </Col>
           </Row>
     );
+    } else { 
+      return (
+        <Error />
+      );}
   }
 }
 

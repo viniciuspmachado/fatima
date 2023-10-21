@@ -76,11 +76,16 @@ const Header = () => {
               </Link>
             </NavItem>
             <NavItem>
-              <Link to="/about" className="nav-link">
-                Quem somos
-              </Link>
+              <a href="https://nsfatima.org.br/" target="_blank" className="nav-link"  rel="noreferrer" >
+                Quem Somos
+              </a>
             </NavItem>
-            <UncontrolledDropdown inNavbar nav>
+            <NavItem>
+              <a href="https://nsfatima.org.br/pastorais" target="_blank" className="nav-link"  rel="noreferrer" >
+                Pastorais
+              </a>
+            </NavItem>
+            {/* <UncontrolledDropdown inNavbar nav>
               <DropdownToggle caret nav>
                 Pastorais
               </DropdownToggle>
@@ -91,7 +96,7 @@ const Header = () => {
                 <DropdownItem divider />
                 <DropdownItem>Reset</DropdownItem>
               </DropdownMenu>
-            </UncontrolledDropdown>
+            </UncontrolledDropdown> */}
           </Nav>
           <h5><Badge color="red" outline>
               <Evangelho />

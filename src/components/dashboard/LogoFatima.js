@@ -3,7 +3,7 @@ import logofatima from "../../assets/images/logos/logofatima.svg";
 
 var cardStyle = {
   position: "relative",
-  width: "35%"
+  width: "50%"
 }
 
 

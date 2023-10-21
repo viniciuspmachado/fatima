@@ -3,6 +3,7 @@ import LinhaTab from "../../../components/m_batismo/LinhaTab";
 import { Row, Col, Card, CardTitle, CardBody, FormGroup, Input, Button } from "reactstrap";
 import OptDatasBat from "../../../components/m_batismo/OptDatasBat";
 import { useNavigate } from "react-router-dom";
+import Error from "../../Error";
 
 const Tables = () => {
   const [variavel] = useState(window.location.hash);
@@ -48,6 +49,8 @@ const Tables = () => {
     //alert(datasel);
   }, [variavel]);
 
+  if ((sessionStorage.getItem('permz')==='0') || (sessionStorage.getItem('permz')==='1'))  {
+
   return (
     <Row>
       <Col lg="12">
@@ -82,6 +85,10 @@ const Tables = () => {
       </Col>
     </Row>
   );
+  } else {
+    return (
+      <Error />
+    );}
 };
 
 export default Tables;

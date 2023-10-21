@@ -2,6 +2,7 @@ import DatasBat from "../../../components/m_batismo/DatasBat";
 import { Row, Col, Card, CardTitle, CardBody, FormGroup, Input, Button } from "reactstrap";
 import InputMask from 'react-input-mask';
 import React from 'react';
+import Error from "../../Error";
 
 class Tables extends React.Component {
   
@@ -43,6 +44,7 @@ class Tables extends React.Component {
   }
 
   render() {
+    if ((sessionStorage.getItem('permz')==='0') || (sessionStorage.getItem('permz')==='1'))  {
     return (
       <Row>
         <Col lg="12">
@@ -82,6 +84,10 @@ class Tables extends React.Component {
         </Col>
       </Row>
     );
+    } else {
+      return (
+        <Error />
+      );}
   }
 }
 
