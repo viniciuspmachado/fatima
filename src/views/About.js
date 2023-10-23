@@ -1,4 +1,5 @@
 import { Row, Col, Card, CardBody, CardTitle } from "reactstrap";
+import { Link} from "react-router-dom";
 
 const About = () => {
   return (
@@ -37,6 +38,7 @@ const About = () => {
                 </Button> */}
               </Col>
             </Row>
+            <Link to='/' className="btn btn-primary">Volta a página inicial</Link>
           </CardBody>
         </Card>
       </Col>

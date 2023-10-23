@@ -179,6 +179,7 @@ class Login extends React.Component {
                             &nbsp;&nbsp;&nbsp;
                             <Link to='/caduser' className="btn btn-primary">Solicitar Cadastro</Link>
                             &nbsp;&nbsp;&nbsp;
+                            <Link to='/' className="btn btn-primary">Volta a página inicial</Link><br/><br/>
                             <Link to={this.state.rota}>Solicitar Nova Senha</Link>
                             </Form>
                         </CardBody>

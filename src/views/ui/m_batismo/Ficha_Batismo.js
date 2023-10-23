@@ -140,7 +140,7 @@ onMudaLink (mess) {
 paginaPrincipal = () => {
   //alert(this.state.rota);
   this.toggle();
-  if  (this.state.rota !== 0){
+  if  (this.state.rota !== '0'){
   window.location.replace (process.env.REACT_APP_SERVER_APP+'/#/');
   window.location.reload();
     
@@ -151,22 +151,6 @@ paginaPrincipal = () => {
 onSubmitSignIn = async () => {
   
   let error = 0;
-
-  if(this.state.tipoP.trim() === ''){
-    //alert("Por favor, selecione o tipo de participação (pais ou padrinhos)!");
-    error = 1;
-    this.onMudaTitulo("Erro!");
-    this.onMudaMessagem('Por favor, selecione o tipo de participação (pais ou padrinhos)!');
-    this.toggle();
-  } 
-  
-  if(this.state.nomedele.trim() === '' && this.state.nomedela.trim() === ''){
-    //alert("Por favor, preencha pelo menos nome de um participante!");
-    error = 1;
-    this.onMudaTitulo("Erro!");
-    this.onMudaMessagem('Por favor, preencha pelo menos nome de um participante!');
-    this.toggle();
-  } 
   
   if(this.state.datap.trim() === ''){
     //alert("Por favor , informe a data para a preparação para o Batismo!");
@@ -175,7 +159,21 @@ onSubmitSignIn = async () => {
     this.onMudaMessagem('Por favor , informe a data para a preparação para o Batismo!');
     this.toggle();
   } 
-
+  if(this.state.nomedele.trim() === '' && this.state.nomedela.trim() === ''){
+    //alert("Por favor, preencha pelo menos nome de um participante!");
+    error = 1;
+    this.onMudaTitulo("Erro!");
+    this.onMudaMessagem('Por favor, preencha pelo menos nome de um participante!');
+    this.toggle();
+  } 
+  if(this.state.tipoP.trim() === ''){
+    //alert("Por favor, selecione o tipo de participação (pais ou padrinhos)!");
+    error = 1;
+    this.onMudaTitulo("Erro!");
+    this.onMudaMessagem('Por favor, selecione o tipo de participação (pais ou padrinhos)!');
+    this.toggle();
+  } 
+  
   if (error === 0){
     
     await fetch(process.env.REACT_APP_SERVER_TZ+'/register', {
