@@ -30,7 +30,7 @@ function OptDatasBat() {
         .then((response) => response.json())
         .then((actualData) => {
             
-
+            //Converte a string para o formato de data
             var zzz = [];
             for (var key in actualData) {
                 zzz.push(converterDataStringParaData(actualData[key].data));
@@ -38,14 +38,16 @@ function OptDatasBat() {
             zzz = zzz.sort(function (a, b) {
                 return a > b;
             });
-            //console.log(zzz);
-
+            
+            //Converte as datas ordenadas para o formato dd/mm/aaaa pegando somente as datas futuras
             var aaa = [];
+            const timeElapsed = Date.now();
+            const hoje = new Date(timeElapsed).setHours(-1);;    
             for (var key in zzz) {
-                aaa.push(dataAtualFormatada(zzz[key]));
+                if (zzz[key] >= hoje) {
+                    aaa.push(dataAtualFormatada(zzz[key]));
+                }
             }
-
-            //console.log(aaa);
 
             setData(aaa);
             
@@ -64,7 +66,6 @@ function OptDatasBat() {
         
 
          <optgroup label="Selecione a data">
-                    {console.log(data)}
                     {data.map((item, index) => (
                         //<option value={item.id}>{item.id}</option>
                         //<option value={item.id}>{new Date(item.data).toLocaleTimeString('pt-BR')}</option>
