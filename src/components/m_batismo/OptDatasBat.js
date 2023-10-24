@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function OptDatasBat() {
+function OptDatasBat(props) {
     const [data, setData] = useState([]);
 
     function converterDataStringParaData(dataString) {
@@ -48,6 +48,13 @@ function OptDatasBat() {
                     aaa.push(dataAtualFormatada(zzz[key]));
                 }
             }
+
+           /*  alert('sds==> '+props.flag);
+            if (props.flag === "todos") {
+                setData(aaa);
+            } else {
+                setData(actualData);
+            } */
 
             setData(aaa);
             

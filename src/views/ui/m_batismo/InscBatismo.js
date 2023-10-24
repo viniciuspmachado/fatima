@@ -63,7 +63,7 @@ const Tables = () => {
                 <Col sm={3}>
                   <Input id="dataSelect" name="datapart" type="select" onChange={onDataPChange}>
                     <option value={datasel}>{datasel}</option>
-                    <OptDatasBat />
+                    <OptDatasBat flag="todos" />
                   </Input>
                 </Col>
                 <Col sm={3}>
