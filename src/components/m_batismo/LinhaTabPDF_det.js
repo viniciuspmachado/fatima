@@ -2,10 +2,11 @@ import { useEffect, useState, useCallback, Suspense } from "react";
 import RemoveNull from "../RemoveNull";
 import Casados from "./Casados";
 import TipoPartic from "./TipoPartic";
+import FezECC from "./FezECC";
 import {Text, View, StyleSheet} from "@react-pdf/renderer";
 import Loader from '../../layouts/loader/Loader';
 
-function LinhaTabPDF(props) {
+function LinhaTabPDF_det(props) {
     
     //dotenv.config()
     //alert(process.env.REACT_APP_SERVER_TZ);
@@ -20,19 +21,25 @@ function LinhaTabPDF(props) {
           },
           // So Declarative and unDRY 👌
           row1: {
-            width: '40%',
+            width: '5%',
           },
           row2: {
-            width: '40%',
+            width: '23%',
           },
           row3: {
             width: '10%',
           },
           row4: {
-            width: '10%',
+            width: '15%',
           },
           row5: {
-            width: '27%',
+            width: '15%',
+          },
+          row6: {
+            width: '22%',
+          },
+          row7: {
+            width: '10%',
           },
           
       });
@@ -62,10 +69,25 @@ function LinhaTabPDF(props) {
               <div>
                   {data.map((item, index) => (
                     <View style={styles.row} wrap={false}>
-                      <Text style={styles.row1}><RemoveNull nome={[item.nome_ele]}/></Text>
-                      <Text style={styles.row2}><RemoveNull nome={[item.nome_ela]}/></Text>
-                      <Text style={styles.row3}><Casados casados={[item.casados]}/></Text>
-                      <Text style={styles.row4}><TipoPartic tp={[item.t_paticipacao]}/></Text> 
+                      <Text style={styles.row1}>{[item.id]}</Text>
+                      <Text style={styles.row2}>
+                          <RemoveNull nome={[item.nome_ele]}/>{"\n\n"}
+                          <RemoveNull nome={[item.nome_ela]}/>
+                      </Text>
+                      <Text style={styles.row3}>
+                        Casados:{"\n"}<Casados casados={[item.casados]}/>{"\n\n"}
+                        ECC:{"\n"}<FezECC tp={[item.ecc]}/>
+                      </Text>
+                      <Text style={styles.row4}>
+                          Participação:{"\n"}<TipoPartic tp={[item.t_participacao]}/>{"\n\n"}
+                          Paróquia:{"\n"}{[item.paroquia]}
+                        </Text>
+                      <Text style={styles.row5}>Sacramentos</Text>
+                      <Text style={styles.row6}>{[item.endereco]}</Text> 
+                      <Text style={styles.row7}>
+                        Cidade:{"\n"}{[item.cidade]}{"\n\n"}
+                        Telefone:{"\n"}{[item.telefone]}
+                        </Text> 
                       </View>
                   ))}
               </div>
@@ -84,4 +106,4 @@ function LinhaTabPDF(props) {
       }
 }
 
-export default LinhaTabPDF;
+export default LinhaTabPDF_det;

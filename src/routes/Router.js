@@ -19,6 +19,8 @@ const InscBatismo = lazy(() => import("../views/ui/m_batismo/InscBatismo.js"));
 const FichaBatismo = lazy(() => import("../views/ui/m_batismo/Ficha_Batismo.js"));
 const CadastroDatas = lazy(() => import("../views/ui/m_batismo/CadastroDatas.js"));
 const MostraPDF = lazy(() => import("../views/ui/m_batismo/MostraPDF.js"));
+const MostraPDF_Det = lazy(() => import("../views/ui/m_batismo/MostraPDF_Det.js"));
+
 
 /***** Administração ****/
 const Login = lazy(() => import("../views/ui/login.js"));
@@ -47,6 +49,7 @@ const ThemeRoutes = [
       { path: "/CadastroDatas", exact: true, element: <CadastroDatas /> },
       { path: "/breadcrumbs", exact: true, element: <Breadcrumbs /> },
       { path: "/mostrapdf", exact: true, element: <MostraPDF /> },
+      { path: "/mostrapdf_det", exact: true, element: <MostraPDF_Det /> },
       { path: "/login", exact: true, element: <Login /> },
       { path: "/caduser", exact: true, element: <CadUser /> },
       { path: '*', exact: true, element: <Error /> },
