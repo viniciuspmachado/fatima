@@ -5,6 +5,7 @@ import TipoPartic from "./TipoPartic";
 import FezECC from "./FezECC";
 import {Text, View, StyleSheet} from "@react-pdf/renderer";
 import Loader from '../../layouts/loader/Loader';
+import RetornaParoquiaPDF from "./RetornaParoquiaPDF";
 
 function LinhaTabPDF_det(props) {
     
@@ -25,6 +26,7 @@ function LinhaTabPDF_det(props) {
           },
           row2: {
             width: '23%',
+            fontFamily: 'Helvetica-Bold',
           },
           row3: {
             width: '10%',
@@ -37,6 +39,7 @@ function LinhaTabPDF_det(props) {
           },
           row6: {
             width: '22%',
+            fontFamily: 'Helvetica-Bold',
           },
           row7: {
             width: '10%',
@@ -75,18 +78,18 @@ function LinhaTabPDF_det(props) {
                           <RemoveNull nome={[item.nome_ela]}/>
                       </Text>
                       <Text style={styles.row3}>
-                        Casados:{"\n"}<Casados casados={[item.casados]}/>{"\n\n"}
-                        ECC:{"\n"}<FezECC tp={[item.ecc]}/>
+                        Casados:<Text style={{ fontFamily: 'Helvetica-Bold' }}>{"\n"}<Casados casados={[item.casados]}/>{"\n\n"}</Text>
+                        ECC:<Text style={{ fontFamily: 'Helvetica-Bold' }}>{"\n"}<FezECC tp={[item.ecc]}/></Text>
                       </Text>
                       <Text style={styles.row4}>
-                          Participação:{"\n"}<TipoPartic tp={[item.t_participacao]}/>{"\n\n"}
-                          Paróquia:{"\n"}{[item.paroquia]}
-                        </Text>
-                      <Text style={styles.row5}>Sacramentos</Text>
+                          Participação:<Text style={{ fontFamily: 'Helvetica-Bold' }}>{"\n"}<TipoPartic tp={[item.t_participacao]}/>{"\n\n"}</Text>
+                          Paróquia:<Text style={{ fontFamily: 'Helvetica-Bold' }}>{"\n"}<RetornaParoquiaPDF id={[item.paroquia]}/></Text>
+                      </Text>
+                      <Text style={styles.row5}>Sacramentos:</Text>
                       <Text style={styles.row6}>{[item.endereco]}</Text> 
                       <Text style={styles.row7}>
-                        Cidade:{"\n"}{[item.cidade]}{"\n\n"}
-                        Telefone:{"\n"}{[item.telefone]}
+                        Cidade:<Text style={{ fontFamily: 'Helvetica-Bold' }}>{"\n"}{[item.cidade]}{"\n\n"}</Text>
+                        Telefone:<Text style={{ fontFamily: 'Helvetica-Bold' }}>{"\n"}{[item.telefone]}</Text>
                         </Text> 
                       </View>
                   ))}
