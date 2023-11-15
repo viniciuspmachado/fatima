@@ -6,6 +6,7 @@ import FezECC from "./FezECC";
 import {Text, View, StyleSheet} from "@react-pdf/renderer";
 import Loader from '../../layouts/loader/Loader';
 import RetornaParoquiaPDF from "./RetornaParoquiaPDF";
+import OptSacramentos from "./OptSacramentos";
 
 function LinhaTabPDF_det(props) {
     
@@ -85,7 +86,7 @@ function LinhaTabPDF_det(props) {
                           Participação:<Text style={{ fontFamily: 'Helvetica-Bold' }}>{"\n"}<TipoPartic tp={[item.t_participacao]}/>{"\n\n"}</Text>
                           Paróquia:<Text style={{ fontFamily: 'Helvetica-Bold' }}>{"\n"}<RetornaParoquiaPDF id={[item.paroquia]}/></Text>
                       </Text>
-                      <Text style={styles.row5}>Sacramentos:</Text>
+                      <Text style={styles.row5}><Text style={{ fontFamily: 'Helvetica-Bold' }}><OptSacramentos id={[item.id]} /></Text></Text>
                       <Text style={styles.row6}>{[item.endereco]}</Text> 
                       <Text style={styles.row7}>
                         Cidade:<Text style={{ fontFamily: 'Helvetica-Bold' }}>{"\n"}{[item.cidade]}{"\n\n"}</Text>
