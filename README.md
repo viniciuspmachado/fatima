@@ -167,8 +167,10 @@ CREATE TABLE `ecc_casais` (
   `grau_parente_convite` text,
   `nomes_end_chegados` longtext,
   `foto` text,
+  `email_ele` text,
+  `email_ela` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 ```
 
 ### Criar tabela de cadastro de filhos
@@ -190,4 +192,126 @@ CREATE TABLE `casal_filhos` (
   CONSTRAINT `PF_Casal_Filho2` FOREIGN KEY (`idCasal`) REFERENCES `ecc_casais` (`id`),
   CONSTRAINT `PF_Casal_Filho3` FOREIGN KEY (`idFilho`) REFERENCES `ecc_filhos` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
+
+### Criar tabela de cidades
+```
+CREATE TABLE `cidade` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  `id_estado` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
+
+### Criar tabela de estado
+```
+CREATE TABLE `estado` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
+
+### Criar tabela de religião
+```
+CREATE TABLE `religiao` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
+
+### Criar tabela de instrução
+```
+CREATE TABLE `instrucao` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
+
+### Criar tabela de entidades
+```
+CREATE TABLE `entidade` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
+
+### Criar tabela de entidades
+```
+CREATE TABLE `ecc_habilidades` (
+  `id` int NOT NULL,
+  `nome` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
+
+
+### Criar tabela de relacionamento de habilidades e casal
+```
+CREATE TABLE `casal_habilidades` (
+  `idCasal` int NOT NULL,
+  `idHabilidade` int NOT NULL,
+  PRIMARY KEY (`idCasal`,`idHabilidade`),
+  KEY `PF_Hab_Filho3` (`idHabilidade`),
+  CONSTRAINT `PF_Hab_Filho2` FOREIGN KEY (`idCasal`) REFERENCES `ecc_casais` (`id`),
+  CONSTRAINT `PF_Hab_Filho3` FOREIGN KEY (`idHabilidade`) REFERENCES `ecc_habilidades` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
+
+### Criar tabela de equipes
+```
+CREATE TABLE `ecc_equipes` (
+  `id` int NOT NULL,
+  `nome` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
+
+### Criar tabela de relacionamento de equipes que já participou e casal
+```
+CREATE TABLE `casal_equipes` (
+  `idCasal` int NOT NULL,
+  `idEquipe` int NOT NULL,
+  PRIMARY KEY (`idCasal`,`idEquipe`),
+  KEY `PF_Equi_Filho3` (`idEquipe`),
+  CONSTRAINT `PF_Equi_Filho2` FOREIGN KEY (`idCasal`) REFERENCES `ecc_casais` (`id`),
+  CONSTRAINT `PF_Equi_Filho3` FOREIGN KEY (`idEquipe`) REFERENCES `ecc_equipes` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
+
+### Criar tabela de relacionamento de equipes que já coordenou e casal
+```
+CREATE TABLE `casal_equipes_coord` (
+  `idCasal` int NOT NULL,
+  `idEquipe` int NOT NULL,
+  PRIMARY KEY (`idCasal`,`idEquipe`),
+  KEY `PF_Equi_Coord3` (`idEquipe`),
+  CONSTRAINT `PF_Equi_Coord2` FOREIGN KEY (`idCasal`) REFERENCES `ecc_casais` (`id`),
+  CONSTRAINT `PF_Equi_Coord3` FOREIGN KEY (`idEquipe`) REFERENCES `ecc_equipes` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
+
+### Criar tabela de circulos
+```
+CREATE TABLE `ecc_circulos` (
+  `id` INT NOT NULL,
+  `cor` VARCHAR(45) NULL,
+  `nome` VARCHAR(45) NULL,
+  `ecc_no` INT NULL,
+  PRIMARY KEY (`id`));
+```
+
+### Criar tabela de relacionamento de circulos
+```
+CREATE TABLE `fatima`.`ecc` (
+  `no` INT NOT NULL,
+  `ano` INT NULL,
+  `tema` VARCHAR(45) NULL,
+  `lema` VARCHAR(45) NULL,
+  `casal_coord` INT NULL,
+  PRIMARY KEY (`no`));
 ```
