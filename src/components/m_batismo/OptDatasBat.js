@@ -26,7 +26,7 @@ function OptDatasBat(props) {
     
 
     const fetchData = () => {
-        fetch(process.env.REACT_APP_SERVER_TZ+'/datasbat')
+        fetch(process.env.REACT_APP_SERVER_TZ+'/datasbat_lim')
         .then((response) => response.json())
         .then((actualData) => {
             

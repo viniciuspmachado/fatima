@@ -20,12 +20,14 @@ CREATE TABLE batismo (
 );
 ```
 
-### Criar tableas Datas Batismo
+### Criar tabela Datas Batismo
 ```
-CREATE TABLE datas_bat (
-	id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    data CHAR(10) NOT NULL
-);
+CREATE TABLE `datas_bat` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `data` char(10) NOT NULL,
+  `qtd_insc` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 ```
 ### Criar tabela Sacramentos
 ```
