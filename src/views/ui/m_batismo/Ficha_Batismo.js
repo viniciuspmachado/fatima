@@ -8,6 +8,7 @@ import {
   Form,
   FormGroup,
   Label,
+  Table,
   Input,
   /*FormText,*/
   Modal, ModalHeader, ModalBody, ModalFooter,
@@ -16,6 +17,7 @@ import React from 'react';
 import OptParoquias from "../../../components/m_batismo/OptParoquias";
 import OptDatasBat from "../../../components/m_batismo/OptDatasBat";
 import {Link} from "react-router-dom";
+
 
 class Ficha_Batismo extends React.Component {
   
@@ -245,6 +247,7 @@ onSubmitSignIn = async () => {
                   <svg xmlns="http://www.w3.org/2000/svg" height="0.8em" viewBox="0 0 640 512"><path d="M344 24c0-13.3-10.7-24-24-24s-24 10.7-24 24V48H264c-13.3 0-24 10.7-24 24s10.7 24 24 24h32v46.4L183.3 210c-14.5 8.7-23.3 24.3-23.3 41.2V512h96V416c0-35.3 28.7-64 64-64s64 28.7 64 64v96h96V251.2c0-16.9-8.8-32.5-23.3-41.2L344 142.4V96h32c13.3 0 24-10.7 24-24s-10.7-24-24-24H344V24zM24.9 330.3C9.5 338.8 0 354.9 0 372.4V464c0 26.5 21.5 48 48 48h80V273.6L24.9 330.3zM592 512c26.5 0 48-21.5 48-48V372.4c0-17.5-9.5-33.6-24.9-42.1L512 273.6V512h80z"/></svg>
                     {'  '}Ficha para Preparação ao Sacramento do Batismo
                   </h3>
+                  Pastoral do Batismo - Telefone (86) 3232-2030
                 </CardTitle>
                 <CardBody >
                   <Form>
@@ -304,11 +307,12 @@ onSubmitSignIn = async () => {
 
                     <FormGroup>
                       <Label><b>
-                        * Local: Salão Paroquial <br/>
+                        * Local: Sala de Vídeo <br/>
                         * Presencial <br/>
-                        * Horário: 19:00 <br/><br/>
+                        * Horário: 19:00 <br/>
+                        * Limitado a 30 pessoas <br/><br/>
                         </b>
-                        Marque a data para realizar a preparação do Batismo de acordo com o disponível no calendário.
+                        Marque a data para realizar a <u><b>preparação</b></u> do Batismo de acordo com o disponível no calendário.
                       </Label>
                       <Input id="dataSelect" name="datapart" type="select" onChange={this.onDataPChange}>
                       <option value='-'>-</option>
@@ -396,6 +400,92 @@ onSubmitSignIn = async () => {
                         </Label>
                       </FormGroup>
                     </FormGroup>
+
+                    <Col lg="12">
+                      <Card>
+                        <CardTitle tag="h6" className="border-bottom p-3 mb-0">
+                          <i className="bi bi-calendar-event me-1"> </i>
+                          Datas de Celebração do Batismo<br/>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          Comparecer na secretaria da Igreja para confirmar o batizado conforme agenda:
+                        </CardTitle>
+                        <CardBody className="">
+                          <Table bordered hover>
+                            <thead>
+                              <tr>
+                                <th>Mês</th>
+                                <th>Datas de Celebração do Batismo</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">Janeiro</th>
+                                <td>21</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Fevereiro</th>
+                                <td>4 e 18</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Março</th>
+                                <td>3 e 17</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Abril</th>
+                                <td>7 e 21</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Maio</th>
+                                <td>19</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Junho</th>
+                                <td>2 e 16</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Julho</th>
+                                <td>7 e 21</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Agosto</th>
+                                <td>4 e 18</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Setembro</th>
+                                <td>1 e 15</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Outubro</th>
+                                <td>20</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Novembro</th>
+                                <td>3 e 17</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Dezembro</th>
+                                <td>1 e 15</td>
+                              </tr>
+                            </tbody>
+                          </Table>
+                        </CardBody>
+                      </Card>
+                    </Col>
+                    
+                    <h5>ORIENTAÇÕES CELEBRAÇÃO DO BATISMO COLETIVO</h5>
+                    <ol>
+                      <li><b><u>Comparecer na secretaria da Igreja para confirmar o batizado conforme agenda;</u></b></li>
+                      <li><b><u>Formação de Pais/Padrinhos limitado a 30 pessoas, e será na sala de vídeo;</u></b></li>
+                      <li>Horário batismo coletivo: <b><u>APÓS A MISSA DAS 08:00;</u></b></li>
+                      <li>O Rito iniciará com a procissão de pais, padrinhos e crianças;</li>
+                      <li>Pais/padrinhos tem cadeira marcada;</li>
+                      <li>Não há cobrança de taxa;</li>
+                      <li>Os familiares podem acompanhar;</li>
+                      <li>Levar vela;</li>
+                      <li>Levar toalhinha/pano;</li>
+                      <li>Roupa de fácil abertura no peito;</li>
+                    </ol>
+
 
                     <Card>
                       <Label >Vídeo de Acolhida:</Label><br/>
