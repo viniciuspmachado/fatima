@@ -41,6 +41,7 @@ function DatasBat() {
                 <tr>
                   <th>#</th>
                   <th>Data</th>
+                  <th>Inscritos</th>
                   <th>Excluir</th>
                   
                 </tr>
@@ -50,6 +51,7 @@ function DatasBat() {
                         <tr>
                             <th scope="row">{item.id}</th>
                             <td><RemoveNull nome={[item.data]}/></td>
+                            <td>{item.qtd_insc}</td>
                             <td><Link to="" onClick={() => apaga(item.id)}><i class="bi bi-calendar-x-fill" title='Excluir data'> </i></Link></td>
                         </tr>
                     ))}
