@@ -33,7 +33,7 @@ class Ficha_Batismo extends React.Component {
         cidade: '',
         telefone: '',
         sacramentos: '',
-        paroquia: '1',
+        paroquia: '',
         ecc: '0',
         batismo: '0',
         euca: '0',
@@ -161,6 +161,13 @@ onSubmitSignIn = async () => {
     this.onMudaMessagem('Por favor , informe a data para a preparação para o Batismo!');
     this.toggle();
   } 
+  if(this.state.paroquia.trim() === ''){
+    //alert("Por favor , informe a data para a preparação para o Batismo!"); 
+    error = 1;
+    this.onMudaTitulo("Erro!");
+    this.onMudaMessagem('Por favor , informe a paróquia que frequenta!');
+    this.toggle();
+  } 
   if(this.state.nomedele.trim() === '' && this.state.nomedela.trim() === ''){
     //alert("Por favor, preencha pelo menos nome de um participante!");
     error = 1;
@@ -250,6 +257,92 @@ onSubmitSignIn = async () => {
                   Pastoral do Batismo - Telefone (86) 3232-2030
                 </CardTitle>
                 <CardBody >
+
+                  <Col lg="12">
+                      <Card>
+                        <CardTitle tag="h6" className="border-bottom p-3 mb-0">
+                          <i className="bi bi-calendar-event me-1"> </i>
+                          Datas de Celebração do Batismo<br/>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          Comparecer na secretaria da Igreja para confirmar o batizado conforme agenda:
+                        </CardTitle>
+                        <CardBody className="">
+                          <Table bordered hover>
+                            <thead>
+                              <tr>
+                                <th>Mês</th>
+                                <th>Datas de Celebração do Batismo</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">Janeiro</th>
+                                <td>21</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Fevereiro</th>
+                                <td>4 e 18</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Março</th>
+                                <td>3 e 17</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Abril</th>
+                                <td>7 e 21</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Maio</th>
+                                <td>19</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Junho</th>
+                                <td>2 e 16</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Julho</th>
+                                <td>7 e 21</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Agosto</th>
+                                <td>4 e 18</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Setembro</th>
+                                <td>1 e 15</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Outubro</th>
+                                <td>20</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Novembro</th>
+                                <td>3 e 17</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Dezembro</th>
+                                <td>1 e 15</td>
+                              </tr>
+                            </tbody>
+                          </Table>
+                        </CardBody>
+                      </Card>
+                    </Col>
+                    
+                    <h5>ORIENTAÇÕES CELEBRAÇÃO DO BATISMO COLETIVO</h5>
+                    <ol>
+                      <li><b><u>Comparecer na secretaria da Igreja para confirmar o batizado conforme agenda;</u></b></li>
+                      <li><b><u>Formação de Pais/Padrinhos limitado a 30 pessoas, e será na sala de vídeo;</u></b></li>
+                      <li>Horário batismo coletivo: <b><u>APÓS A MISSA DAS 08:00;</u></b></li>
+                      <li>O Rito iniciará com a procissão de pais, padrinhos e crianças;</li>
+                      <li>Pais/padrinhos tem cadeira marcada;</li>
+                      <li>Não há cobrança de taxa;</li>
+                      <li>Os familiares podem acompanhar;</li>
+                      <li>Levar vela;</li>
+                      <li>Levar toalhinha/pano;</li>
+                      <li>Roupa de fácil abertura no peito;</li>
+                    </ol>
+
                   <Form>
                   <FormGroup tag="fieldset">
                   <Label >Tipo de Participação:</Label>
@@ -380,6 +473,7 @@ onSubmitSignIn = async () => {
                     <FormGroup>
                     <Label for="exampleSelectMulti">Qual a paróquia que frequenta?</Label>
                       <Input id="dataSelect" name="paroquia" type="select" onChange={this.onParoquiaChange}>
+                      <option value='-'>-</option>
                         <OptParoquias/>
                       </Input>
                     </FormGroup>
@@ -401,90 +495,7 @@ onSubmitSignIn = async () => {
                       </FormGroup>
                     </FormGroup>
 
-                    <Col lg="12">
-                      <Card>
-                        <CardTitle tag="h6" className="border-bottom p-3 mb-0">
-                          <i className="bi bi-calendar-event me-1"> </i>
-                          Datas de Celebração do Batismo<br/>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          Comparecer na secretaria da Igreja para confirmar o batizado conforme agenda:
-                        </CardTitle>
-                        <CardBody className="">
-                          <Table bordered hover>
-                            <thead>
-                              <tr>
-                                <th>Mês</th>
-                                <th>Datas de Celebração do Batismo</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <th scope="row">Janeiro</th>
-                                <td>21</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">Fevereiro</th>
-                                <td>4 e 18</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">Março</th>
-                                <td>3 e 17</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">Abril</th>
-                                <td>7 e 21</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">Maio</th>
-                                <td>19</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">Junho</th>
-                                <td>2 e 16</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">Julho</th>
-                                <td>7 e 21</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">Agosto</th>
-                                <td>4 e 18</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">Setembro</th>
-                                <td>1 e 15</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">Outubro</th>
-                                <td>20</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">Novembro</th>
-                                <td>3 e 17</td>
-                              </tr>
-                              <tr>
-                                <th scope="row">Dezembro</th>
-                                <td>1 e 15</td>
-                              </tr>
-                            </tbody>
-                          </Table>
-                        </CardBody>
-                      </Card>
-                    </Col>
                     
-                    <h5>ORIENTAÇÕES CELEBRAÇÃO DO BATISMO COLETIVO</h5>
-                    <ol>
-                      <li><b><u>Comparecer na secretaria da Igreja para confirmar o batizado conforme agenda;</u></b></li>
-                      <li><b><u>Formação de Pais/Padrinhos limitado a 30 pessoas, e será na sala de vídeo;</u></b></li>
-                      <li>Horário batismo coletivo: <b><u>APÓS A MISSA DAS 08:00;</u></b></li>
-                      <li>O Rito iniciará com a procissão de pais, padrinhos e crianças;</li>
-                      <li>Pais/padrinhos tem cadeira marcada;</li>
-                      <li>Não há cobrança de taxa;</li>
-                      <li>Os familiares podem acompanhar;</li>
-                      <li>Levar vela;</li>
-                      <li>Levar toalhinha/pano;</li>
-                      <li>Roupa de fácil abertura no peito;</li>
-                    </ol>
 
 
                     <Card>
