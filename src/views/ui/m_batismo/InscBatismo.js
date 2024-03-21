@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import LinhaTab from "../../../components/m_batismo/LinhaTab";
 import { Row, Col, Card, CardTitle, CardBody, FormGroup, Input, Button } from "reactstrap";
-import OptDatasBat_all from "../../../components/m_batismo/OptDatasBat_all";
+import OptDatasBatall from "../../../components/m_batismo/OptDatasBat_all";
 import { useNavigate } from "react-router-dom";
 import Error from "../../Error";
 import Loader from '../../../layouts/loader/Loader';
@@ -77,7 +77,7 @@ const Tables = () => {
                 <Col sm={2}>
                   <Input id="dataSelect" name="datapart" type="select" onChange={onDataPChange}>
                     <option value={datasel}>{datasel}</option>
-                    <OptDatasBat_all />
+                    <OptDatasBatall />
                   </Input><br/>
                 
                 </Col>

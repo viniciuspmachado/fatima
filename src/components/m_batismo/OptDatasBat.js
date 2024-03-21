@@ -17,9 +17,9 @@ function OptDatasBat(props) {
     function dataAtualFormatada(dataz){
         var data = dataz,
             dia  = data.getDate().toString(),
-            diaF = (dia.length == 1) ? '0'+dia : dia,
+            diaF = (dia.length === 1) ? '0'+dia : dia,
             mes  = (data.getMonth()+1).toString(), //+1 pois no getMonth Janeiro começa com zero.
-            mesF = (mes.length == 1) ? '0'+mes : mes,
+            mesF = (mes.length ===1) ? '0'+mes : mes,
             anoF = data.getFullYear();
         return diaF+"/"+mesF+"/"+anoF;
     }
@@ -43,7 +43,7 @@ function OptDatasBat(props) {
             var aaa = [];
             const timeElapsed = Date.now();
             const hoje = new Date(timeElapsed).setHours(-1);;    
-            for (var key in zzz) {
+            for (key in zzz) {
                 if (zzz[key] >= hoje) {
                     aaa.push(dataAtualFormatada(zzz[key]));
                 }

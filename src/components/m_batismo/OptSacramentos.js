@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { AutocompleteArrayInput } from "react-admin";
 
 function OptSacramentos(props) {
     
@@ -27,7 +26,7 @@ function OptSacramentos(props) {
     
     //console.log("Tamanho==> "+data.length);
     //console.log("Dados==> '"+data+"'");
-    if (data != 0) {
+    if (data !== 0) {
     
         return (
             <>

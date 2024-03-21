@@ -6,7 +6,6 @@ import Blog from "../components/dashboard/Blog";
 import bglogin from "../assets/images/bg/login.png";
 import prepbat from "../assets/images/bg/prepbat.png";
 import sobre from "../assets/images/bg/sobre.png";
-import bg4 from "../assets/images/bg/bg4.jpg";
 import LogoFatima from "../components/dashboard/LogoFatima";
 
 const BlogData = [

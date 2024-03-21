@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 function OptDatasBat_all() {
     const [data, setData] = useState([]);
 
-    function converterDataStringParaData(dataString) {
+   /*  function converterDataStringParaData(dataString) {
         const partes = dataString.split('/');
         if (partes.length === 3) {
         const dia = parseInt(partes[0], 10);
@@ -22,7 +22,7 @@ function OptDatasBat_all() {
             mesF = (mes.length == 1) ? '0'+mes : mes,
             anoF = data.getFullYear();
         return diaF+"/"+mesF+"/"+anoF;
-    }
+    } */
     
 
     const fetchData = () => {

@@ -7,9 +7,8 @@ import {
     PDFViewer,
     Image,
   } from "@react-pdf/renderer";
-  import LinhaTabPDF from "../m_batismo/LinhaTabPDF_det";
   import logoFatima from '../../assets/images/bg/logo_paroquia.jpg';
-import LinhaTabPDF_det from "../m_batismo/LinhaTabPDF_det";
+import LinhaTabPDFdet from "../m_batismo/LinhaTabPDF_det";
 
   // Create styles
   const styles = StyleSheet.create({
@@ -163,7 +162,7 @@ import LinhaTabPDF_det from "../m_batismo/LinhaTabPDF_det";
                     <Text style={styles.row7}>Cidade/Telefone</Text>
                 </View>
                 
-                <LinhaTabPDF_det datasel={data} />
+                <LinhaTabPDFdet datasel={data} />
                 
 
             </View>
