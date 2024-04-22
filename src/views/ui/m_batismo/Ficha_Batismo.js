@@ -272,56 +272,69 @@ onSubmitSignIn = async () => {
                               <tr>
                                 <th>Mês</th>
                                 <th>Datas de Celebração do Batismo</th>
+                                <th>Datas de Preparação do Batismo</th>
                               </tr>
                             </thead>
                             <tbody>
                               <tr>
                                 <th scope="row">Janeiro</th>
                                 <td>21</td>
+                                <td>18</td>
                               </tr>
                               <tr>
                                 <th scope="row">Fevereiro</th>
                                 <td>4 e 18</td>
+                                <td>1 e 15</td>
                               </tr>
                               <tr>
                                 <th scope="row">Março</th>
                                 <td>3 e 17</td>
+                                <td>7 e 21</td>
                               </tr>
                               <tr>
                                 <th scope="row">Abril</th>
                                 <td>7 e 21</td>
+                                <td>4 e 18</td>
                               </tr>
                               <tr>
                                 <th scope="row">Maio</th>
                                 <td>5 e 19</td>
+                                <td>2 e 16</td>
                               </tr>
                               <tr>
                                 <th scope="row">Junho</th>
                                 <td>2 e 16</td>
+                                <td>6 e 20</td>
                               </tr>
                               <tr>
                                 <th scope="row">Julho</th>
                                 <td>7 e 21</td>
+                                <td>4</td>
                               </tr>
                               <tr>
                                 <th scope="row">Agosto</th>
                                 <td>4 e 18</td>
+                                <td>1 e 15</td>
                               </tr>
                               <tr>
                                 <th scope="row">Setembro</th>
                                 <td>1 e 15</td>
+                                <td>15 e 19</td>
                               </tr>
                               <tr>
                                 <th scope="row">Outubro</th>
                                 <td>20</td>
+                                <td>3 e 17</td>
                               </tr>
                               <tr>
                                 <th scope="row">Novembro</th>
                                 <td>3 e 17</td>
+                                <td>7 e 21</td>
                               </tr>
                               <tr>
                                 <th scope="row">Dezembro</th>
                                 <td>1 e 15</td>
+                                <td>5</td>
                               </tr>
                             </tbody>
                           </Table>

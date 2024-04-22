@@ -1,3 +1,8 @@
+## para iniciar
+```
+npm start
+```
+
 ## Banco de Dados
 Criar banco de dados fatimaDB
 
