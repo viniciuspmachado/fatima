@@ -3,6 +3,12 @@
 npm start
 ```
 
+## Para gerar o build
+# No Mac
+```
+NODE_OPTIONS=--openssl-legacy-provider npm run build
+```
+
 ## Banco de Dados
 Criar banco de dados fatimaDB
 
